@@ -1,0 +1,53 @@
+redvital-colvatenza/
+│
+├── index.php
+├── emergencias.php
+├── brigadas.php
+├── evacuacion.php
+├── puntos-encuentro.php
+├── contactos.php
+├── informacion.php
+├── contacto.php
+│
+├── admin/
+│   ├── index.php
+│   ├── login.php
+│   └── ...
+│
+├── includes/
+│   ├── public/
+│   │   ├── navbar.php
+│   │   └── footer.php
+│   │
+│   └── admin/
+│       ├── header.php
+│       ├── navbar.php
+│       └── footer.php
+│
+└── assets/
+    ├── css/
+    │   ├── public/
+    │   │   ├── style.css
+    │   │   ├── emergencias.css
+    │   │   ├── brigadas.css
+    │   │   ├── evacuacion.css
+    │   │   ├── puntos-encuentro.css
+    │   │   ├── contactos.css
+    │   │   ├── informacion.css
+    │   │   └── contacto.css
+    │   │
+    │   └── admin/
+    │       └── style.css
+    │
+    ├── js/
+    │   ├── public/
+    │   │   └── main.js
+    │   └── admin/
+    │       └── main.js
+    │
+    └── images/
+        ├── logo.png
+        ├── hero/
+        ├── emergency/
+        ├── brigades/
+        └── evacuation/
