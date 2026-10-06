@@ -353,7 +353,7 @@
 .bloque-rutas {
     min-height: 280px;
     display: grid;
-    grid-template-columns: 1fr 0.8fr;
+    grid-template-columns: 1fr;
     overflow: hidden;
     border-radius: 18px;
     margin-bottom: 25px;

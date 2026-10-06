@@ -489,7 +489,6 @@
 
                     <!-- Rutas de evacuación -->
                     <div class="bloque-rutas">
-
                         <div class="contenido-rutas">
 
                             <h3>Conoce las rutas de evacuación</h3>
