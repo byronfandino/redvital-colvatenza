@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="RedVital Colvatenza - Sistema de prevención, preparación y respuesta ante emergencias.">
     <title>Inicio | RedVital Colvatenza</title>
+    <link rel="stylesheet" href="assets/css/public/menu.css">
+    <link rel="stylesheet" href="assets/css/public/pie-pagina.css">
     <link rel="stylesheet" href="assets/css/public/index.css">
 </head>
 
@@ -13,18 +15,15 @@
     <?php include 'includes/public/navbar.php'; ?>
 
     <main>
-
         <section class="seccion-hero">
             <div class="fondo-hero"></div>
             <div class="contenido-hero">
 
                 <!-- Logo y presentación institucional -->
                 <div class="presentacion-hero">
-                    <img
-                        src="assets/images/logo.png"
+                    <img src="assets/images/logo.png"
                         alt="Logo RedVital Colvatenza"
-                        class="logo-hero"
-                    >
+                        class="logo-hero">
 
                     <p class="subtitulo-hero">
                         Sistema de prevención, preparación y respuesta ante emergencias
@@ -38,10 +37,7 @@
 
                 <!-- Mensaje principal -->
                 <div class="mensaje-hero">
-                    <h1>
-                        Comunidad segura,<br>
-                        una institución más fuerte
-                    </h1>
+                    <h1> Comunidad segura,<br> una institución más fuerte</h1>
                     <p class="eslogan-hero">
                         Prevenir <span>•</span> Preparar <span>•</span> Responder
                     </p>
@@ -56,9 +52,7 @@
                     <span class="etiqueta-seccion">
                         Información de emergencia
                     </span>
-                    <h2 class="titulo-seccion">
-                        ¿Qué necesitas consultar?
-                    </h2>
+                    <h2 class="titulo-seccion"> ¿Qué necesitas consultar? </h2>
                     <p class="descripcion-seccion">
                         Encuentra rápidamente la información necesaria
                         para prevenir, prepararte y actuar ante una
@@ -74,10 +68,7 @@
                             <img src="assets/images/icono-mas.svg" alt="Icono Plus">
                         </div>
 
-                        <h3>
-                            ¿Qué hacer en<br>
-                            una emergencia?
-                        </h3>
+                        <h3> ¿Qué hacer en<br> una emergencia? </h3>
 
                         <p> Guía y recomendaciones </p>
 
@@ -217,28 +208,19 @@
 
 
                 <div class="imagen-presentacion">
-
                     <figure>
-
-                        <img
-                            src="assets/images/colegio2.png"
-                            alt="Institución Educativa Técnica Valle de Tenza"
-                        >
+                        <img src="assets/images/colegio2.png"
+                            alt="Institución Educativa Técnica Valle de Tenza">
 
                         <figcaption>
                             Institución Educativa Técnica Valle de Tenza
                         </figcaption>
-
                     </figure>
-
                 </div>
-
             </div>
-
         </section>
     </main>
-
+    
     <?php include 'includes/public/footer.php'; ?>
-    <script src="assets/js/public/menu.js"></script>
 </body>
 </html>

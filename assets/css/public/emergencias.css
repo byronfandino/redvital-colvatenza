@@ -1,0 +1,613 @@
+/* Hero */
+.hero-emergencias {
+    min-height: 310px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: url("../../images/hero-emergencia.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-emergencias::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 58, 51, 0.92) 0%,
+        rgba(0, 58, 51, 0.72) 45%,
+        rgba(0, 58, 51, 0.20) 100%
+    );
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-contenido h1 {
+    color: #ffffff;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero-contenido p {
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+
+/* Emergencias */
+.emergencias {
+    padding-top: 45px;
+}
+
+.tarjetas-emergencia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.tarjeta-emergencia {
+    min-height: 120px;
+    padding: 22px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-emergencia:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icono-emergencia {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono-emergencia img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.contenido-tarjeta {
+    padding-right: 35px;
+}
+
+.contenido-tarjeta h2 {
+    color: #17202a;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.contenido-tarjeta p {
+    color: #475467;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.flecha-emergencia {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+}
+
+
+/* Colores */
+.tarjeta-incendio {
+    background-color: #fde8e8;
+}
+
+.tarjeta-incendio .flecha-emergencia {
+    background-color: #ed1c24;
+}
+
+.tarjeta-sismo {
+    background-color: #e5f0ff;
+}
+
+.tarjeta-sismo .flecha-emergencia {
+    background-color: #1976ed;
+}
+
+.tarjeta-accidente {
+    background-color: #e2f7ef;
+}
+
+.tarjeta-accidente .flecha-emergencia {
+    background-color: #078b4f;
+}
+
+.tarjeta-evacuacion {
+    background-color: #f0e5ff;
+}
+
+.tarjeta-evacuacion .flecha-emergencia {
+    background-color: #722ed1;
+}
+
+/* Emergencias */
+.seccion-emergencias {
+    background-color: #ffffff;
+}
+
+.emergencia {
+    padding: 75px 0;
+}
+
+
+/* Encabezado */
+.encabezado-emergencia {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.icono-emergencia-grande {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icono-emergencia-grande img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.etiqueta-emergencia {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.encabezado-emergencia h2 {
+    color: #17202a;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin: 5px 0 8px;
+}
+
+.encabezado-emergencia p {
+    color: #667085;
+    font-size: 15px;
+}
+
+
+/* Bloques */
+.bloque-emergencia {
+    background-color: #f8f9fa;
+    border-radius: 18px;
+    padding: 35px;
+    margin-bottom: 25px;
+}
+
+.titulo-bloque {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.numero-bloque {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.titulo-bloque h3 {
+    color: #17202a;
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.titulo-bloque p {
+    color: #667085;
+    font-size: 13px;
+}
+
+
+/* Pasos */
+.pasos-emergencia {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.paso-emergencia {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid #eeeeee;
+}
+
+.numero-paso {
+    width: 34px;
+    height: 34px;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.paso-emergencia h4 {
+    color: #17202a;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.paso-emergencia p {
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* Recomendaciones */
+.recomendaciones-emergencia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.recomendacion-emergencia {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #eeeeee;
+}
+
+.recomendacion-emergencia span {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.recomendacion-emergencia p {
+    color: #475467;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* Alerta */
+.alerta-emergencia {
+    border-radius: 18px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.icono-alerta {
+    width: 42px;
+    height: 42px;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.alerta-emergencia h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.alerta-emergencia ul {
+    padding-left: 18px;
+}
+
+.alerta-emergencia li {
+    color: #475467;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* Rutas */
+.bloque-rutas {
+    min-height: 280px;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    overflow: hidden;
+    border-radius: 18px;
+    margin-bottom: 25px;
+}
+
+.contenido-rutas {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contenido-rutas h3 {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 8px 0 12px;
+}
+
+.contenido-rutas p {
+    color: #ffffff;
+    opacity: 0.85;
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.imagen-rutas {
+    min-height: 280px;
+}
+
+.imagen-rutas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Incendio */
+.emergencia-incendio {
+    background-color: #ffffff;
+}
+
+.emergencia-incendio .icono-emergencia-grande {
+    background-color: #fde8e8;
+}
+
+.emergencia-incendio .etiqueta-emergencia,
+.emergencia-incendio .numero-bloque {
+    color: #e63946;
+}
+
+.emergencia-incendio .numero-paso {
+    background-color: #e63946;
+}
+
+.emergencia-incendio .alerta-emergencia {
+    background-color: #fff4f4;
+    border: 1px solid #f7caca;
+}
+
+.emergencia-incendio .icono-alerta {
+    background-color: #e63946;
+}
+
+.emergencia-incendio .alerta-emergencia h3 {
+    color: #a61b27;
+}
+
+
+/* Sismo */
+.emergencia-sismo {
+    background-color: #f8fbff;
+}
+
+.emergencia-sismo .icono-emergencia-grande {
+    background-color: #e5f0ff;
+}
+
+.emergencia-sismo .etiqueta-emergencia,
+.emergencia-sismo .numero-bloque {
+    color: #1976ed;
+}
+
+.emergencia-sismo .numero-paso,
+.emergencia-sismo .recomendacion-emergencia span {
+    background-color: #1976ed;
+}
+
+.emergencia-sismo .alerta-emergencia {
+    background-color: #edf5ff;
+    border: 1px solid #c9def7;
+}
+
+.emergencia-sismo .icono-alerta {
+    background-color: #1976ed;
+}
+
+.emergencia-sismo .alerta-emergencia h3 {
+    color: #1459a8;
+}
+
+
+/* Primeros auxilios */
+.emergencia-primeros-auxilios {
+    background-color: #f7fcfa;
+}
+
+.emergencia-primeros-auxilios .icono-emergencia-grande {
+    background-color: #e2f7ef;
+}
+
+.emergencia-primeros-auxilios .etiqueta-emergencia,
+.emergencia-primeros-auxilios .numero-bloque {
+    color: #078b4f;
+}
+
+.emergencia-primeros-auxilios .numero-paso {
+    background-color: #078b4f;
+}
+
+.emergencia-primeros-auxilios .alerta-emergencia {
+    background-color: #eaf9f2;
+    border: 1px solid #c6ead7;
+}
+
+.emergencia-primeros-auxilios .icono-alerta {
+    background-color: #078b4f;
+}
+
+.emergencia-primeros-auxilios .alerta-emergencia h3 {
+    color: #056b3c;
+}
+
+
+/* Evacuación */
+.emergencia-evacuacion {
+    background-color: #faf8ff;
+}
+
+.emergencia-evacuacion .icono-emergencia-grande {
+    background-color: #f0e5ff;
+}
+
+.emergencia-evacuacion .etiqueta-emergencia,
+.emergencia-evacuacion .numero-bloque {
+    color: #722ed1;
+}
+
+.emergencia-evacuacion .numero-paso,
+.emergencia-evacuacion .recomendacion-emergencia span {
+    background-color: #722ed1;
+}
+
+.emergencia-evacuacion .bloque-rutas {
+    background-color: #4c238f;
+}
+
+.emergencia-evacuacion .alerta-emergencia {
+    background-color: #f4efff;
+    border: 1px solid #dfcff7;
+}
+
+.emergencia-evacuacion .icono-alerta {
+    background-color: #722ed1;
+}
+
+.emergencia-evacuacion .alerta-emergencia h3 {
+    color: #5a1da8;
+}
+
+
+/* Separación */
+.emergencia + .emergencia {
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-emergencias {
+        min-height: 280px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .hero-emergencias {
+        min-height: 260px;
+        background-position: center;
+    }
+
+    .hero-contenido h1 {
+        font-size: 2rem;
+    }
+
+    .hero-contenido p {
+        font-size: 14px;
+    }
+
+    .tarjetas-emergencia {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-emergencia {
+        min-height: 105px;
+    }
+
+    .emergencia {
+        padding: 50px 0;
+    }
+
+    .encabezado-emergencia {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .icono-emergencia-grande {
+        width: 65px;
+        height: 65px;
+        border-radius: 14px;
+    }
+
+    .icono-emergencia-grande img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .encabezado-emergencia h2 {
+        font-size: 2rem;
+    }
+
+    .bloque-emergencia {
+        padding: 22px;
+    }
+
+    .pasos-emergencia {
+        grid-template-columns: 1fr;
+    }
+
+    .recomendaciones-emergencia {
+        grid-template-columns: 1fr;
+    }
+
+    .alerta-emergencia {
+        padding: 22px;
+    }
+
+    .bloque-rutas {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-rutas {
+        min-height: 200px;
+    }
+
+}

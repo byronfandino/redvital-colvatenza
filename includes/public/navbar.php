@@ -21,9 +21,6 @@
                 <a href="brigadas.php" class="enlace-navegacion">
                     Brigadas
                 </a>
-                <a href="evacuacion.php" class="enlace-navegacion">
-                    Ruta de evacuación
-                </a>
                 <a href="contactos.php" class="enlace-navegacion">
                     Contactos
                 </a>
@@ -37,3 +34,5 @@
         </div>
     </nav>
 </header>
+
+<script src="assets/js/public/menu.js"></script>
