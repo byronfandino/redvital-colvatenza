@@ -421,21 +421,14 @@
                                 <li>Informa lo ocurrido a los responsables de la institución.</li>
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
-
-
 
             <!-- Evacuación -->
 
             <section id="evacuacion" class="emergencia emergencia-evacuacion">
-
                 <div class="contenedor">
-
                     <!-- Encabezado -->
                     <div class="encabezado-emergencia">
 
@@ -448,16 +441,13 @@
                             <h2>Evacuación</h2>
                             <p>Conoce cómo evacuar de manera segura y ordenada.</p>
                         </div>
-
                     </div>
-
 
                     <!-- Cuándo evacuar -->
                     <div class="bloque-emergencia">
 
                         <div class="titulo-bloque">
                             <span class="numero-bloque">01</span>
-
                             <div>
                                 <h3>¿Cuándo evacuar?</h3>
                                 <p>Evacúa cuando recibas la indicación de hacerlo.</p>
@@ -490,23 +480,36 @@
                     <!-- Rutas de evacuación -->
                     <div class="bloque-rutas">
                         <div class="contenido-rutas">
-
                             <h3>Conoce las rutas de evacuación</h3>
-
                             <p>
                                 Identifica las rutas señalizadas dentro de la institución
                                 y conoce el punto de encuentro antes de que ocurra una emergencia.
                             </p>
-
                         </div>
-
 
                         <div class="imagen-rutas">
                             <img src="assets/images/ruta-evacuacion.jpeg" alt="Ruta de evacuación">
                         </div>
+                    </div>
+                    
+                    <!-- Punto de encuentro -->
+                    <div class="punto-encuentro">
+
+                        <div class="contenido-punto-encuentro">
+                            <span class="etiqueta-emergencia">PUNTO DE ENCUENTRO</span>
+                            <h3>¿Dónde reunirse después de evacuar?</h3>
+                            <p>
+                                Una vez evacuada la institución, dirígete al punto de encuentro
+                                y permanece allí hasta recibir nuevas instrucciones.
+                            </p>
+
+                        </div>
+
+                        <div class="imagen-punto-encuentro">
+                            <img src="assets/images/punto-encuentro.jfif" alt="Punto de encuentro de la institución">
+                        </div>
 
                     </div>
-
 
                     <!-- Recomendaciones -->
                     <div class="alerta-emergencia alerta-evacuacion">
@@ -527,6 +530,7 @@
                         </div>
 
                     </div>
+
 
                 </div>
 

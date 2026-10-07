@@ -1,0 +1,365 @@
+/*   HERO */
+
+.hero-brigadistas {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("../../images/hero-brigada.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    text-align: center;
+}
+
+.hero-contenido {
+    max-width: 800px;
+    color: #ffffff;
+}
+
+.hero-contenido h1 {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.hero-contenido p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+
+/*   CONTENEDOR */
+
+.contenedor {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
+
+
+/*   ENCABEZADOS */
+
+.encabezado-seccion {
+    max-width: 750px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.encabezado-seccion h2 {
+    margin: 0 0 1rem;
+    color: #222222;
+    font-size: 2rem;
+}
+
+.encabezado-seccion p {
+    margin: 0;
+    color: #666666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/*   TARJETAS */
+
+.seccion-brigadas {
+    padding: 5rem 0;
+    background-color: #ffffff;
+}
+
+.tarjetas-brigadas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.tarjeta-brigada {
+    overflow: hidden;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+
+    border-top: 5px solid var(--color-brigada);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tarjeta-brigada:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Icono */
+
+.tarjeta-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+
+    background-color: #f8f8f8;
+}
+
+.tarjeta-icono img {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+}
+
+
+/* Contenido */
+
+.tarjeta-contenido {
+    padding: 1.75rem;
+    text-align: center;
+}
+
+.tarjeta-contenido h3 {
+    margin: 0 0 1rem;
+
+    color: var(--color-brigada);
+
+    font-size: 1.35rem;
+}
+
+.tarjeta-contenido p {
+    margin: 0 0 1.5rem;
+
+    color: #666666;
+
+    line-height: 1.6;
+}
+
+
+/* Botón */
+
+.boton-brigada {
+    display: inline-block;
+
+    padding: 0.75rem 1.5rem;
+
+    border-radius: 8px;
+
+    background-color: var(--color-brigada);
+    color: #ffffff;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-brigada:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+
+/*   INFORMACIÓN */
+
+.seccion-informacion-brigadistas {
+    padding: 5rem 0;
+
+    background-color: #f7f7f7;
+}
+
+
+/*   DETALLE DE BRIGADA */
+
+.detalle-brigada {
+    margin-bottom: 4rem;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    border-top: 6px solid var(--color-brigada);
+}
+
+.detalle-brigada:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Encabezado */
+
+.detalle-encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    padding: 2rem;
+
+    text-align: center;
+}
+
+.detalle-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background-color: #f5f5f5;
+}
+
+.detalle-icono img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+}
+
+.detalle-encabezado h2 {
+    margin: 0 0 0.75rem;
+
+    color: var(--color-brigada);
+
+    font-size: 1.7rem;
+}
+
+.detalle-encabezado p {
+    margin: 0;
+
+    color: #666666;
+
+    line-height: 1.6;
+}
+
+
+/*   TABLA */
+
+.tabla-contenedor {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.tabla-brigadistas {
+    width: 100%;
+
+    min-width: 600px;
+
+    border-collapse: collapse;
+}
+
+.tabla-brigadistas th,
+.tabla-brigadistas td {
+    padding: 1rem;
+
+    text-align: left;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.tabla-brigadistas th {
+    background-color: var(--color-brigada);
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+.tabla-brigadistas td {
+    color: #444444;
+}
+
+.tabla-brigadistas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-brigadistas tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+
+/*   TABLET */
+
+@media (min-width: 768px) {
+
+    .hero-brigadistas {
+        min-height: 480px;
+    }
+
+    .hero-contenido h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-contenido p {
+        font-size: 1.2rem;
+    }
+
+    .tarjetas-brigadas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detalle-encabezado {
+        flex-direction: row;
+
+        align-items: center;
+
+        text-align: left;
+    }
+
+}
+
+
+/*   ESCRITORIO */
+
+@media (min-width: 1024px) {
+
+    .hero-brigadistas {
+        min-height: 550px;
+    }
+
+    .hero-contenido h1 {
+        font-size: 3.8rem;
+    }
+
+    .tarjetas-brigadas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .detalle-encabezado {
+        padding: 2.5rem;
+    }
+
+    .tabla-brigadistas th,
+    .tabla-brigadistas td {
+        padding: 1.2rem 1.5rem;
+    }
+
+}
