@@ -34,7 +34,6 @@
                     </p>
                 </div>
 
-
                 <!-- Mensaje principal -->
                 <div class="mensaje-hero">
                     <h1> Comunidad segura,<br> una institución más fuerte</h1>
@@ -130,9 +129,7 @@
             </div>
         </section>
 
-        <!-- =====================================================
-            AVISO IMPORTANTE
-            ===================================================== -->
+        <!-- AVISO IMPORTANTE -->
 
         <section class="seccion-informacion">
             <div class="contenedor">
@@ -154,9 +151,7 @@
             </div>
         </section>
 
-        <!-- =====================================================
-            SOBRE REDVITAL
-            ===================================================== -->
+        <!-- SOBRE REDVITAL -->
         <section class="seccion-presentacion">
 
             <div class="contenedor contenido-presentacion">

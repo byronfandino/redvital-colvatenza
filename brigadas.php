@@ -83,6 +83,81 @@ $brigadistas = [
 
 ];
 
+// Datos de teléfonos de emergencia
+$telefonosEmergencia = [
+
+    [
+        'nombre' => 'Alcaldía',
+        'telefono' => '310 441 9567',
+    ],
+
+    [
+        'nombre' => 'Urgencias',
+        'telefono' => '316 742 8505',
+    ],
+
+    [
+        'nombre' => 'Ambulancia',
+        'telefono' => '316 742 8515',
+    ],
+
+    [
+        'nombre' => 'Bomberos',
+        'telefono' => '314 219 4981',
+    ],
+
+    [
+        'nombre' => 'Defensa Civil',
+        'telefono' => '310 623 2796',
+    ],
+
+    [
+        'nombre' => 'Estación de Policía',
+        'telefono' => '310 442 5020',
+    ],
+
+    [
+        'nombre' => 'Cuadrante',
+        'telefono' => '302 351 2353',
+    ],
+
+    [
+        'nombre' => 'EBSA Guateque',
+        'telefono' => '312 497 1303',
+    ],
+
+    [
+        'nombre' => 'Servicios Públicos',
+        'telefono' => '310 443 2457',
+    ],
+
+    [
+        'nombre' => 'Concesión Sisga',
+        'telefono' => '316 549 7841',
+    ],
+
+    [
+        'nombre' => 'ENERCER',
+        'telefono' => '321 349 9349',
+    ],
+
+    [
+        'nombre' => 'Comisaría de Familia',
+        'telefono' => '310 442 5041',
+    ],
+
+    [
+        'nombre' => 'Personería',
+        'telefono' => '310 888 0328',
+    ],
+
+    [
+        'nombre' => 'Dirección Local de Salud',
+        'telefono' => '310 442 6051',
+    ],
+
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +165,7 @@ $brigadistas = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestras brigadas | RedVital</title>
+    <title>Brigadistas | RedVital</title>
     <link rel="stylesheet" href="assets/css/public/menu.css" >
     <link rel="stylesheet" href="assets/css/public/pie-pagina.css" >
     <link rel="stylesheet" href="assets/css/public/brigadistas.css" >
@@ -201,6 +276,52 @@ $brigadistas = [
 
             </div>
         </section>
+
+        <!-- Directorio de emergencias -->
+        <section class="seccion-directorio-emergencias">
+            <div class="contenedor">
+
+                <div class="encabezado-seccion">
+                    <h2>Teléfonos de emergencia</h2>
+                    <p>
+                        Ten a la mano los principales contactos para solicitar
+                        ayuda ante una situación de emergencia.
+                    </p>
+                </div>
+
+                <div class="directorio-emergencias">
+
+                    <?php foreach ($telefonosEmergencia as $contacto): ?>
+
+                        <article class="tarjeta-contacto-emergencia">
+
+                            <div class="contacto-informacion">
+                                <h3>
+                                    <?= htmlspecialchars($contacto['nombre']) ?>
+                                </h3>
+
+                                <p>
+                                    <?= htmlspecialchars($contacto['telefono']) ?>
+                                </p>
+                            </div>
+
+                            <a
+                                href="tel:<?= preg_replace('/\s+/', '', $contacto['telefono']) ?>"
+                                class="boton-llamar"
+                            >
+                                Llamar
+                            </a>
+
+                        </article>
+
+                    <?php endforeach; ?>
+
+                </div>
+
+            </div>
+        </section>
+        <!--  -->
+
     </main>
    <?php include_once 'includes/public/footer.php' ?>
 </body>

@@ -1,0 +1,535 @@
+
+/* Estilos generales */
+.pagina-institucional {
+    color: #173b36;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pagina-institucional * {
+    box-sizing: border-box;
+}
+
+.pagina-institucional .contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pagina-institucional h1,
+.pagina-institucional h2,
+.pagina-institucional h3,
+.pagina-institucional h4,
+.pagina-institucional p {
+    margin-top: 0;
+}
+
+.pagina-institucional h2 {
+    margin-bottom: 8px;
+    color: #064b40;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.descripcion-seccion {
+    margin-bottom: 26px;
+    color: #526276;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Hero institucional */
+.hero-institucional {
+    display: flex;
+    align-items: center;
+    min-height: 270px;
+    padding: 45px 0;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 65, 55, 0.96) 0%,
+            rgba(0, 65, 55, 0.86) 38%,
+            rgba(0, 65, 55, 0.48) 70%,
+            rgba(0, 65, 55, 0.16) 100%
+        ),
+        url("../../images/colegio-valle-tenza.jpeg") center 45% / cover no-repeat;
+}
+
+.hero-institucional .contenedor {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-institucional h1 {
+    max-width: 620px;
+    margin-bottom: 14px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-institucional p {
+    max-width: 570px;
+    margin-bottom: 0;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* Información general */
+.seccion-informacion {
+    padding: 28px 0 24px;
+    background: #f5f9fb;
+}
+
+.seccion-informacion h2,
+.seccion-contacto h2 {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* .seccion-informacion h2::after,
+.seccion-contacto h2::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 46px;
+    height: 5px;
+    background: #198754;
+    border-radius: 5px;
+    content: "";
+} */
+
+.seccion-informacion .descripcion-seccion,
+.seccion-contacto .descripcion-seccion {
+    margin-top: 10px;
+}
+
+.tarjeta-informacion {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.dato-institucional {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 195px;
+    padding: 18px 22px;
+    background: #ffffff;
+    border: 1px solid #edf1f4;
+    border-radius: 11px;
+    box-shadow: 0 5px 16px rgba(22, 57, 73, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dato-institucional:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(22, 57, 73, 0.1);
+}
+
+.contenedor-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 66px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+    border-radius: 13px;
+}
+
+.contenedor-icono .icono {
+    display: block;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.icono-verde {
+    background: #e4f6ec;
+}
+
+.icono-rojo {
+    background: #ffebed;
+}
+
+.icono-azul {
+    background: #e4f4fd;
+}
+
+.icono-morado {
+    background: #f1eaff;
+}
+
+.dato-institucional h3 {
+    margin-bottom: 8px;
+    color: #123f46;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.dato-institucional p {
+    margin-bottom: 0;
+    color: #405168;
+    font-size: 15px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+/* Contacto y atención */
+.seccion-contacto {
+    padding: 24px 0 30px;
+    background: #ffffff;
+}
+
+.contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.tarjeta-contacto,
+.tarjeta-horario {
+    min-width: 0;
+    padding: 18px 22px;
+    border: 1px solid #e7efeb;
+    border-radius: 12px;
+    box-shadow: 0 5px 16px rgba(22, 57, 73, 0.04);
+}
+
+.tarjeta-contacto {
+    background: #ffffff;
+}
+
+.tarjeta-horario {
+    background: #f2faf3;
+}
+
+.tarjeta-contacto > h3,
+.tarjeta-horario > h3 {
+    margin-bottom: 18px;
+    color: #086044;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Datos de contacto */
+.dato-contacto {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.dato-contacto:last-child {
+    margin-bottom: 0;
+}
+
+.dato-contacto .contenedor-icono {
+    width: 66px;
+    height: 58px;
+    margin-bottom: 0;
+}
+
+.dato-contacto .contenedor-icono .icono {
+    width: 32px;
+    height: 32px;
+}
+
+.texto-contacto {
+    min-width: 0;
+}
+
+.texto-contacto h4,
+.contenido-horario h4 {
+    margin-bottom: 4px;
+    color: #163b37;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.texto-contacto p,
+.contenido-horario p {
+    margin-bottom: 0;
+    color: #35465a;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.texto-contacto a {
+    color: #0877ed;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.texto-contacto a:hover {
+    color: #075bb5;
+    text-decoration: underline;
+}
+
+.texto-contacto a:focus-visible {
+    outline: 2px solid #0877ed;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Horario de atención */
+.contenido-horario {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-height: 96px;
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #edf3ed;
+    border-radius: 11px;
+}
+
+.contenido-horario .icono-reloj {
+    width: 76px;
+    height: 66px;
+    margin-bottom: 0;
+}
+
+.contenido-horario .icono {
+    width: 42px;
+    height: 42px;
+}
+
+.imagen-institucion {
+    display: block;
+    width: 100%;
+    height: 116px;
+    margin-top: 0;
+    border-radius: 0 0 9px 9px;
+    object-fit: cover;
+    object-position: center 55%;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 1000px) {
+    .pagina-institucional .contenedor {
+        width: 92%;
+    }
+
+    .hero-institucional {
+        min-height: 250px;
+    }
+
+    .hero-institucional h1 {
+        max-width: 530px;
+        font-size: 36px;
+    }
+
+    .tarjeta-informacion {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dato-institucional {
+        min-height: 185px;
+    }
+
+    .contenedor-contacto {
+        grid-template-columns: 1.1fr 1fr;
+    }
+
+    .tarjeta-contacto,
+    .tarjeta-horario {
+        padding: 18px;
+    }
+
+    .dato-contacto {
+        gap: 12px;
+    }
+
+    .dato-contacto .contenedor-icono {
+        width: 54px;
+        height: 52px;
+    }
+
+    .texto-contacto a,
+    .texto-contacto p {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para tabletas y móviles */
+@media (max-width: 700px) {
+    .pagina-institucional h2 {
+        font-size: 28px;
+    }
+
+    .hero-institucional {
+        min-height: 240px;
+        padding: 45px 0;
+        background-position: center, 58% center;
+    }
+
+    .hero-institucional h1 {
+        max-width: 480px;
+        font-size: 32px;
+    }
+
+    .hero-institucional p {
+        max-width: 460px;
+        font-size: 15px;
+    }
+
+    .seccion-informacion {
+        padding: 35px 0;
+    }
+
+    .seccion-contacto {
+        padding: 35px 0;
+    }
+
+    .contenedor-contacto {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tarjeta-contacto,
+    .tarjeta-horario {
+        padding: 22px;
+    }
+
+    .tarjeta-contacto > h3,
+    .tarjeta-horario > h3 {
+        font-size: 19px;
+    }
+
+    .imagen-institucion {
+        height: 150px;
+    }
+}
+
+/* Ajustes para móviles pequeños */
+@media (max-width: 480px) {
+    .pagina-institucional .contenedor {
+        width: 90%;
+    }
+
+    .pagina-institucional h2 {
+        font-size: 25px;
+    }
+
+    .descripcion-seccion {
+        font-size: 14px;
+    }
+
+    .hero-institucional {
+        min-height: 230px;
+        padding: 38px 0;
+        background-position: center, 60% center;
+    }
+
+    .hero-institucional h1 {
+        max-width: 340px;
+        margin-bottom: 12px;
+        font-size: 28px;
+        line-height: 1.25;
+    }
+
+    .hero-institucional p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .tarjeta-informacion {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dato-institucional {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .contenedor-icono {
+        width: 70px;
+        height: 58px;
+    }
+
+    .dato-institucional h3 {
+        font-size: 16px;
+    }
+
+    .dato-institucional p {
+        font-size: 14px;
+    }
+
+    .tarjeta-contacto,
+    .tarjeta-horario {
+        padding: 20px 16px;
+    }
+
+    .tarjeta-contacto > h3,
+    .tarjeta-horario > h3 {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .dato-contacto {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .dato-contacto .contenedor-icono {
+        width: 46px;
+        height: 46px;
+    }
+
+    .dato-contacto .contenedor-icono .icono {
+        width: 25px;
+        height: 25px;
+    }
+
+    .texto-contacto h4,
+    .contenido-horario h4 {
+        font-size: 14px;
+    }
+
+    .texto-contacto p,
+    .texto-contacto a,
+    .contenido-horario p {
+        font-size: 13px;
+    }
+
+    .contenido-horario {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .contenido-horario .icono-reloj {
+        width: 54px;
+        height: 52px;
+    }
+
+    .contenido-horario .icono {
+        width: 32px;
+        height: 32px;
+    }
+
+    .imagen-institucion {
+        height: 125px;
+    }
+}

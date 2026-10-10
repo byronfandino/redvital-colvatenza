@@ -536,6 +536,30 @@
 
             </section>
 
+            <!-- Instructivo de emergencias -->
+            <section class="seccion-instructivo">
+                <div class="contenedor">
+
+                    <div class="contenido-instructivo">
+
+                        <div class="icono-instructivo">
+                            <img src="assets/images/icono-instructivo.svg" alt="Documento institucional">
+                        </div>
+
+                        <div class="texto-instructivo">
+                            <h2>Instructivo de emergencias</h2>
+                            <p>Consulta y descarga el documento institucional con las orientaciones para actuar ante una emergencia.</p>
+                        </div>
+
+                        <a href="assets/documentos/instructivo.pdf"
+                        class="boton-instructivo"
+                        download>
+                            <span>Descargar instructivo PDF</span>
+                        </a>
+
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 

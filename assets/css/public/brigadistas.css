@@ -305,6 +305,96 @@
     background-color: #f8f8f8;
 }
 
+/*   DIRECTORIO DE EMERGENCIAS */
+
+.seccion-directorio-emergencias {
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+
+/* Encabezado */
+
+.seccion-directorio-emergencias .encabezado-seccion {
+    margin-bottom: 2rem;
+}
+
+
+/* Tarjetas */
+
+.directorio-emergencias {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.tarjeta-contacto-emergencia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1rem;
+
+    padding: 1.5rem;
+
+    background-color: #ffffff;
+
+    border-left: 5px solid #DC2626;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Información */
+
+.contacto-informacion h3 {
+    margin: 0 0 0.5rem;
+
+    color: #222222;
+
+    font-size: 1.1rem;
+}
+
+.contacto-informacion p {
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+/* Botón */
+
+.boton-llamar {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.75rem 1.5rem;
+
+    border-radius: 8px;
+
+    background-color: #DC2626;
+    color: #ffffff;
+
+    text-align: center;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-llamar:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
 
 /*   TABLET */
 
@@ -334,6 +424,27 @@
         text-align: left;
     }
 
+    /* Directorio de emergencias */
+    .seccion-directorio-emergencias {
+        padding: 0 0 5rem 0;
+    }
+
+    .directorio-emergencias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tarjeta-contacto-emergencia {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 1.5rem;
+    }
+
+    .boton-llamar {
+        width: auto;
+    }
 }
 
 
@@ -362,4 +473,12 @@
         padding: 1.2rem 1.5rem;
     }
 
+    .directorio-emergencias {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .tarjeta-contacto-emergencia {
+        padding: 1.75rem;
+    }
 }

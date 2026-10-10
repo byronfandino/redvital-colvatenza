@@ -21,9 +21,6 @@
                 <a href="brigadas.php" class="enlace-navegacion">
                     Brigadas
                 </a>
-                <a href="contactos.php" class="enlace-navegacion">
-                    Contactos
-                </a>
                 <a href="informacion.php" class="enlace-navegacion">
                     Información
                 </a>
