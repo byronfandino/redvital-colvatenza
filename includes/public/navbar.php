@@ -24,7 +24,7 @@
                 <a href="informacion.php" class="enlace-navegacion">
                     Información
                 </a>
-                <a href="admin/login.php" class="boton-administrativo">
+                <a href="login.php" class="boton-administrativo">
                     Acceso administrativo
                 </a>
             </div>

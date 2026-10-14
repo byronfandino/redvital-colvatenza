@@ -219,7 +219,7 @@ $telefonosEmergencia = [
 
         <!-- Brigadistas -->
 
-        <section class="seccion-informacion-brigadistas">
+        <section id="contactos" class="seccion-informacion-brigadistas">
             <div class="contenedor">
                 <div class="encabezado-seccion">
                     <h2>Personal de nuestras brigadas</h2>

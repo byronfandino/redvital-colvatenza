@@ -1,0 +1,285 @@
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f3f7f5;
+    color: #263746;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/* Contenedor principal */
+.editar-usuario {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+    margin: 29px auto;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+/* Encabezado institucional */
+.encabezado-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+    padding: 30px 32px;
+    background-color: #075447;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(20, 55, 45, 0.08);
+}
+
+.encabezado-formulario h1 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.encabezado-formulario p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Botón volver a usuarios */
+.boton-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 8px;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.boton-secundario:hover {
+    background-color: #08705b;
+}
+
+/* Tarjeta blanca del formulario */
+.contenido-formulario {
+    padding: 30px 32px;
+    background-color: #ffffff;
+    border: 1px solid #dce7e2;
+    border-radius: 14px;
+}
+
+/* Contenido del formulario */
+.contenido-formulario {
+    padding-top: 24px;
+}
+
+.introduccion-formulario {
+    margin-bottom: 24px;
+}
+
+.introduccion-formulario h2 {
+    margin: 0 0 8px;
+    color: #075447;
+    font-size: 22px;
+}
+
+.introduccion-formulario p {
+    margin: 0;
+    color: #526273;
+    line-height: 1.6;
+}
+
+/* Mensajes de estado */
+.mensaje-formulario {
+    margin-bottom: 24px;
+    padding: 15px 18px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.mensaje-exito {
+    border-color: #a7ddbf;
+    background-color: #edf9f1;
+    color: #17683b;
+}
+
+.mensaje-error {
+    border-color: #f3a3a7;
+    background-color: #fff0f0;
+    color: #a12c35;
+}
+
+/* Distribución de campos */
+.campos-formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+/* Etiquetas */
+.campo-formulario label {
+    margin-bottom: 9px;
+    color: #263746;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Campos de entrada y selector */
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid #cbd8d2;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #263746;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+    border-color: #087f5b;
+    outline: 2px solid #c5e8da;
+    outline-offset: 1px;
+}
+
+/* Texto de ayuda */
+.campo-formulario small {
+    margin-top: 8px;
+    color: #647586;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Acciones del formulario */
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid #e3ebe7;
+}
+
+.boton-cancelar,
+.boton-guardar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Botón cancelar */
+.boton-cancelar {
+    border-color: #cbd5d1;
+    background-color: #ffffff;
+    color: #263746;
+}
+
+.boton-cancelar:hover {
+    background-color: #f3f7f5;
+}
+
+/* Botón guardar */
+.boton-guardar {
+    border-color: #087f5b;
+    background-color: #087f5b;
+    color: #ffffff;
+}
+
+.boton-guardar:hover {
+    border-color: #075f46;
+    background-color: #075f46;
+}
+
+/* Accesibilidad del teclado */
+.boton-secundario:focus-visible,
+.boton-cancelar:focus-visible,
+.boton-guardar:focus-visible {
+    outline: 3px solid #65b99b;
+    outline-offset: 3px;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+    .editar-usuario {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+
+    .encabezado-formulario {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        padding: 24px 20px;
+        margin-bottom: 20px;
+    }
+
+    .encabezado-formulario h1 {
+        font-size: 26px;
+    }
+
+    .contenido-formulario {
+        padding: 24px 20px;
+    }
+
+    .campos-formulario {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .campo-completo {
+        grid-column: auto;
+    }
+
+    .acciones-formulario {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .acciones-formulario {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .boton-cancelar,
+    .boton-guardar {
+        width: 100%;
+    }
+}

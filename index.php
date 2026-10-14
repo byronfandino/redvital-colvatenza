@@ -103,7 +103,7 @@
 
                         <p>Mapa y puntos de encuentro</p>
 
-                        <a href="evacuacion.php" class="enlace-tarjeta">
+                        <a href="emergencias.php#evacuacion" class="enlace-tarjeta">
                             Ver ruta
                         </a>
                     </article>
@@ -121,7 +121,7 @@
                         </h3>
 
                         <p>Números importantes</p>
-                        <a href="contactos.php" class="enlace-tarjeta">
+                        <a href="brigadas.php#contactos" class="enlace-tarjeta">
                             Ver contactos
                         </a>
                     </article>

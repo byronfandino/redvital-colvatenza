@@ -1,0 +1,180 @@
+
+/* Estilos principales del inicio de sesión */
+.contenedor-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px;
+    padding: 50px 20px;
+    background-image:
+        linear-gradient(rgba(13, 45, 39, 0.12), rgba(13, 45, 39, 0.12)),
+        url("../../../assets/images/colegio2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Tarjeta del formulario */
+.tarjeta-login {
+    width: 100%;
+    max-width: 465px;
+    padding: 35px 32px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(5px);
+}
+
+/* Encabezado del formulario */
+.encabezado-login {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.encabezado-login h1 {
+    margin: 0 0 12px;
+    color: #064b40;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.encabezado-login p {
+    margin: 0;
+    color: #263746;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* Campos del formulario */
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    color: #263746;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.campo-formulario input {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    padding: 12px 15px;
+    border: 2px solid #dce4eb;
+    border-radius: 9px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #263746;
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-formulario input::placeholder {
+    color: #788596;
+}
+
+.campo-formulario input:focus {
+    border-color: #087f5b;
+    box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.12);
+}
+
+/* Botón de inicio de sesión */
+.boton-login {
+    display: block;
+    width: 100%;
+    min-height: 56px;
+    margin-top: 8px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 9px;
+    background-color: #006b4f;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-login:hover {
+    background-color: #00543e;
+}
+
+.boton-login:focus-visible {
+    outline: 3px solid #76c9a8;
+    outline-offset: 3px;
+}
+
+.boton-login:active {
+    transform: scale(0.99);
+}
+
+/* Mensajes de error */
+.mensaje-error {
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    border: 1px solid #e5a7aa;
+    border-radius: 8px;
+    background-color: #fff0f0;
+    color: #922b32;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Adaptación para tabletas */
+@media (max-width: 768px) {
+    .contenedor-login {
+        min-height: 580px;
+        padding: 40px 20px;
+    }
+
+    .tarjeta-login {
+        max-width: 440px;
+        padding: 30px 26px;
+    }
+
+    .encabezado-login h1 {
+        font-size: 29px;
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .contenedor-login {
+        min-height: 520px;
+        padding: 30px 15px;
+    }
+
+    .tarjeta-login {
+        padding: 26px 20px;
+        border-radius: 14px;
+    }
+
+    .encabezado-login {
+        margin-bottom: 24px;
+    }
+
+    .encabezado-login h1 {
+        font-size: 25px;
+    }
+
+    .encabezado-login p {
+        font-size: 15px;
+    }
+
+    .campo-formulario input {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .boton-login {
+        min-height: 52px;
+        font-size: 16px;
+    }
+}

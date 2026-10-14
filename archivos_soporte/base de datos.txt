@@ -1,0 +1,40 @@
+Crear la base de datos
+
+CREATE DATABASE redvital_colvatenza
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE redvital_colvatenza;
+------------------------------------------------------------------------------------------------------
+Tabla de usuarios
+
+| Campo              | Tipo MySQL                      | Propósito                            |
+|--------------------|---------------------------------|--------------------------------------|
+| id_usuario         | INT UNSIGNED                    | Clave primaria autoincremental.      |
+| nombres            | VARCHAR(100)                    | Nombres del usuario.                 |
+| apellidos          | VARCHAR(100)                    | Apellidos del usuario.               |
+| correo_electronico | VARCHAR(150)                    | Correo único para iniciar sesión.    |
+| contrasena         | VARCHAR(255)                    | Hash de la contraseña.               |
+| rol                | ENUM('administrador', 'lector') | Define el perfil del usuario.        |
+| activo             | TINYINT(1)                      | Indica si la cuenta está habilitada. |
+| ultimo_acceso      | DATETIME NULL                   | Último inicio de sesión.             |
+| creado_en          | TIMESTAMP                       | Fecha de creación.                   |
+| actualizado_en     | TIMESTAMP                       | Última modificación.                 |
+
+CREATE TABLE usuarios (
+    id_usuario INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    correo_electronico VARCHAR(150) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL,
+    rol ENUM('administrador', 'lector')
+        NOT NULL DEFAULT 'lector',
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+    ultimo_acceso DATETIME NULL,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+------------------------------------------------------------------------------------------------------
+
