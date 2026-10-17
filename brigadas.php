@@ -172,7 +172,7 @@ $telefonosEmergencia = [
 </head>
 <body>
 
-    <?php include_once 'includes/public/navbar.php' ?>
+    <?php include_once 'includes/public/menu.php' ?>
 
     <main>
         <!-- Hero -->
@@ -323,6 +323,6 @@ $telefonosEmergencia = [
         <!--  -->
 
     </main>
-   <?php include_once 'includes/public/footer.php' ?>
+   <?php include_once 'includes/public/pie_pagina.php' ?>
 </body>
 </html>

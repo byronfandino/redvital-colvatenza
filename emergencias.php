@@ -13,7 +13,7 @@
 <body>
 
     <!-- Encabezado -->
-    <?php include 'includes/public/navbar.php'; ?>
+    <?php include 'includes/public/menu.php'; ?>
 
     <!-- Presentación -->
     <main>
@@ -506,7 +506,7 @@
                         </div>
 
                         <div class="imagen-punto-encuentro">
-                            <img src="assets/images/punto-encuentro.jfif" alt="Punto de encuentro de la institución">
+                            <img src="assets/images/punto-encuentro.jpeg" alt="Punto de encuentro de la institución">
                         </div>
 
                     </div>
@@ -563,7 +563,7 @@
         </section>
     </main>
 
-    <?php include 'includes/public/footer.php'; ?>
+    <?php include 'includes/public/pie_pagina.php'; ?>
 
 </body>
 

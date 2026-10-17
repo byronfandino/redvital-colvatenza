@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <?php include 'includes/public/navbar.php'; ?>
+    <?php include 'includes/public/menu.php'; ?>
 
     <main class="contenedor-login">
 
@@ -219,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </section>
 
     </main>
-    <?php include 'includes/public/footer.php'; ?>
+    <?php include 'includes/public/pie_pagina.php'; ?>
 </body>
 
 </html>

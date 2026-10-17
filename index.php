@@ -12,7 +12,7 @@
 
 <body>
 
-    <?php include 'includes/public/navbar.php'; ?>
+    <?php include 'includes/public/menu.php'; ?>
 
     <main>
         <section class="seccion-hero">
@@ -216,6 +216,6 @@
         </section>
     </main>
     
-    <?php include 'includes/public/footer.php'; ?>
+    <?php include 'includes/public/pie_pagina.php'; ?>
 </body>
 </html>
