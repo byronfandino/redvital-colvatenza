@@ -7,7 +7,7 @@
         <!-- Logo institucional -->
         <div class="logo-pie">
             <a href="index.php" aria-label="Ir al inicio">
-                <img src="assets/images/logo-footer.png"
+                <img src="assets/images/logo-blanco.png"
                      alt="RedVital Colvatenza">
             </a>
         </div>

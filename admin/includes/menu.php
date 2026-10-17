@@ -141,17 +141,12 @@ $ruta_imagenes_menu = '../assets/images/';
         <div class="logo-menu">
             <img
                 src="<?= htmlspecialchars(
-                    $ruta_imagenes_menu . 'logo.svg',
+                    $ruta_imagenes_menu . 'logo-blanco.png',
                     ENT_QUOTES,
                     'UTF-8'
                 ) ?>"
                 alt=""
             >
-        </div>
-
-        <div class="texto-marca">
-            <h2>RedVital</h2>
-            <p>Panel administrativo</p>
         </div>
     </div>
 
