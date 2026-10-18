@@ -1,0 +1,392 @@
+
+/* Contenedor principal de la gestión de brigadas */
+.gestion-brigadas {
+    min-height: 100vh;
+    padding: 0 1rem 1rem;
+    background-color: #f3f6f5;
+    color: #263746;
+}
+
+/* Encabezado de la página */
+.encabezado-brigadas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 28px 32px;
+    border-radius: 14px;
+    background-color: #075447;
+    color: #ffffff;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.encabezado-brigadas h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.encabezado-brigadas p {
+    margin: 0;
+    color: #d1e8e1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Botones principales */
+.boton-principal,
+.boton-secundario {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.boton-principal {
+    background-color: #087f5b;
+    color: #ffffff;
+}
+
+.boton-principal:hover {
+    background-color: #056747;
+}
+
+.boton-secundario {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.boton-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.boton-principal:focus-visible,
+.boton-secundario:focus-visible {
+    outline: 3px solid #65b99b;
+    outline-offset: 3px;
+}
+
+/* Contenedor del contenido */
+.contenido-brigadas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #e1e9e6;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 12px rgba(20, 55, 46, 0.05);
+}
+
+/* Resumen de brigadas registradas */
+.resumen-brigadas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.resumen-brigadas h2 {
+    margin: 0 0 6px;
+    color: #173c35;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.resumen-brigadas p {
+    margin: 0;
+    color: #64736f;
+    font-size: 14px;
+}
+
+.resumen-brigadas strong {
+    color: #075447;
+    font-weight: 700;
+}
+
+/* Contenedor con desplazamiento horizontal */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e1e9e6;
+    border-radius: 8px;
+}
+
+/* Tabla de brigadas */
+.tabla-brigadas {
+    width: 100%;
+    min-width: 1750px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.tabla-brigadas th,
+.tabla-brigadas td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #e8eeeb;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.tabla-brigadas th {
+    background-color: #f0f6f3;
+    color: #244b41;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tabla-brigadas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-brigadas tbody tr:hover {
+    background-color: #f8fbf9;
+}
+
+/* Descripción de cada brigada */
+.descripcion-brigada {
+    max-width: 260px;
+    white-space: normal !important;
+    line-height: 1.5;
+}
+
+/* Muestra del color de la brigada */
+.muestra-color {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.muestra-color-circulo {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border: 1px solid #d5dfda;
+    border-radius: 50%;
+}
+
+/* Icono de la brigada */
+.icono-brigada {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-brigada img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.icono-brigada span {
+    color: #64736f;
+    font-size: 12px;
+}
+
+/* Etiquetas de estado */
+.etiqueta-estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.estado-activo {
+    background-color: #e2f5e9;
+    color: #187343;
+}
+
+.estado-inactivo {
+    background-color: #fde9e7;
+    color: #b42318;
+}
+
+/* Acciones de cada brigada */
+.acciones-brigada {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.formulario-accion {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* Botones de acción */
+.boton-accion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.boton-editar {
+    border-color: #cbded5;
+    background-color: #edf5f0;
+    color: #075447;
+}
+
+.boton-editar:hover {
+    border-color: #a9cabc;
+    background-color: #dcece3;
+}
+
+.boton-desactivar {
+    border-color: #f2c7c3;
+    background-color: #fff0ef;
+    color: #b42318;
+}
+
+.boton-desactivar:hover {
+    border-color: #e9aaa4;
+    background-color: #fde2df;
+}
+
+.boton-activar {
+    border-color: #b8dfc5;
+    background-color: #e8f7ed;
+    color: #187343;
+}
+
+.boton-activar:hover {
+    border-color: #91cda5;
+    background-color: #d5f0df;
+}
+
+/* Datos sin registro */
+.dato-sin-registro {
+    color: #78858d;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Mensajes de estado */
+.mensaje-formulario {
+    padding: 14px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mensaje-exito {
+    border-color: #b8dfc5;
+    background-color: #e8f7ed;
+    color: #187343;
+}
+
+.mensaje-error {
+    border-color: #f2c7c3;
+    background-color: #fff0ef;
+    color: #b42318;
+}
+
+/* Mensaje cuando no existen registros */
+.mensaje-vacio {
+    padding: 36px 24px;
+    border: 1px dashed #cbded5;
+    border-radius: 8px;
+    background-color: #f8fbf9;
+    text-align: center;
+}
+
+.mensaje-vacio h3 {
+    margin: 0 0 8px;
+    color: #244b41;
+    font-size: 18px;
+}
+
+.mensaje-vacio p {
+    margin: 0;
+    color: #64736f;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Ajustes para tabletas */
+@media (max-width: 1024px) {
+    .contenido-brigadas {
+        padding: 20px;
+    }
+
+    .tabla-brigadas {
+        min-width: 1750px;
+    }
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 768px) {
+    .encabezado-brigadas {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .encabezado-brigadas h1 {
+        font-size: 24px;
+    }
+
+    .boton-principal {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contenido-brigadas {
+        gap: 18px;
+        padding: 16px;
+    }
+
+    .tabla-brigadas th,
+    .tabla-brigadas td {
+        padding: 12px;
+    }
+}
+
+/* Ajustes para teléfonos pequeños */
+@media (max-width: 480px) {
+    .encabezado-brigadas h1 {
+        font-size: 22px;
+    }
+
+    .encabezado-brigadas p {
+        font-size: 14px;
+    }
+
+    .contenido-brigadas {
+        padding: 12px;
+    }
+
+    .resumen-brigadas h2 {
+        font-size: 17px;
+    }
+
+    .mensaje-vacio {
+        padding: 28px 16px;
+    }
+}

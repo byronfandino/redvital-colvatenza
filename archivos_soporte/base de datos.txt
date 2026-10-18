@@ -295,7 +295,6 @@ CREATE TABLE brigadistas (
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_unicode_ci;
 
-
 -- Insertamos registros relacionando el id del primer administrador.
 INSERT INTO brigadas ( nombre, descripcion, color, icono, creado_por)
 VALUES (

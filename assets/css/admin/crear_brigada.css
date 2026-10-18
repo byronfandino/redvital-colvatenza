@@ -1,0 +1,155 @@
+/* Contenedor del formulario de brigadas */
+.crear-brigada {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+}
+
+/* Campo de descripción */
+.crear-brigada .campo-formulario textarea {
+    width: 100%;
+    min-height: 110px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd8d2;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffffff;
+    color: #263746;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.crear-brigada .campo-formulario textarea:focus {
+    border-color: #087f5b;
+    box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.12);
+}
+
+/* Selector de imagen */
+.crear-brigada .campo-formulario select {
+    appearance: none;
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 12px 42px 12px 14px;
+    border: 1px solid #cbd8d2;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23075447' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    color: #263746;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.crear-brigada .campo-formulario select:focus {
+    border-color: #087f5b;
+    box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.12);
+}
+
+.crear-brigada .campo-formulario select option {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #263746;
+}
+
+/* Selector del color */
+.selector-color {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 48px;
+}
+
+.selector-color input[type="color"] {
+    width: 58px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 4px;
+    border: 1px solid #cbd8d2;
+    border-radius: 8px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.selector-color input[type="color"]:focus-visible {
+    outline: 3px solid rgba(8, 127, 91, 0.25);
+    outline-offset: 2px;
+}
+
+.selector-color span {
+    color: #075447;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Vista previa de la imagen */
+.vista-previa-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    padding: 24px;
+    border: 1px dashed #cbd8d2;
+    border-radius: 10px;
+    background-color: #f8fbf9;
+}
+
+.vista-previa-imagen img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.vista-previa-imagen p {
+    margin: 0;
+    color: #64736d;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Indicador de campos inválidos */
+.crear-brigada .campo-formulario input:focus-visible,
+.crear-brigada .campo-formulario textarea:focus-visible,
+.crear-brigada .campo-formulario select:focus-visible {
+    outline-offset: 2px;
+}
+
+/* Adaptación para tabletas */
+@media (max-width: 768px) {
+    .crear-brigada {
+        width: 92%;
+    }
+
+    .vista-previa-imagen {
+        min-height: 160px;
+    }
+
+    .vista-previa-imagen img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .crear-brigada {
+        width: 100%;
+    }
+
+    .selector-color {
+        align-items: center;
+    }
+
+    .vista-previa-imagen {
+        min-height: 140px;
+        padding: 18px;
+    }
+}

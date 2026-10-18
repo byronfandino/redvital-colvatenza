@@ -53,6 +53,14 @@ $opciones_menu = [
         'lector' => true
     ],
     [
+        'id' => 'Brigadas',
+        'nombre' => 'Brigadas',
+        'ruta' => 'Brigadas.php',
+        'imagen' => 'brigadas.svg',
+        'administrador' => true,
+        'lector' => false
+    ],
+    [
         'id' => 'brigadistas',
         'nombre' => 'Brigadistas',
         'ruta' => 'brigadistas.php',
