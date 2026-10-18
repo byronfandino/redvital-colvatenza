@@ -1,3 +1,219 @@
+ 
+<?php
+
+$pagina_activa = 'usuarios';
+$rol_requerido = 'administrador';
+
+require_once __DIR__ . '/verificar_rol.php';
+require_once __DIR__ . '/../config/database.php';
+
+// Identificar el usuario seleccionado para editar.
+$id_usuario_editar = filter_input(
+    INPUT_GET,
+    'id',
+    FILTER_VALIDATE_INT
+);
+
+$mensaje = '';
+$tipo_mensaje = '';
+$usuario = null;
+
+// Validar el identificador.
+if (!$id_usuario_editar || $id_usuario_editar < 1) {
+    $_SESSION['mensaje_estado'] = 'El identificador del usuario no es válido.';
+    $_SESSION['tipo_mensaje_estado'] = 'error';
+
+    header('Location: usuarios.php');
+    exit;
+}
+
+// Consultar el usuario seleccionado.
+try {
+    $consulta = $pdo->prepare(
+        'SELECT id_usuario, nombres, apellidos, correo_electronico, rol
+         FROM usuarios
+         WHERE id_usuario = :id_usuario
+         LIMIT 1'
+    );
+
+    $consulta->execute([
+        ':id_usuario' => $id_usuario_editar
+    ]);
+
+    $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    error_log('Error al consultar usuario: ' . $e->getMessage());
+
+    $_SESSION['mensaje_estado'] = 'No fue posible consultar los datos del usuario.';
+    $_SESSION['tipo_mensaje_estado'] = 'error';
+
+    header('Location: usuarios.php');
+    exit;
+}
+
+// Verificar que el usuario exista.
+if (!$usuario) {
+    $_SESSION['mensaje_estado'] = 'El usuario seleccionado no existe.';
+    $_SESSION['tipo_mensaje_estado'] = 'error';
+
+    header('Location: usuarios.php');
+    exit;
+}
+
+// Cargar los datos actuales.
+$nombres = $usuario['nombres'];
+$apellidos = $usuario['apellidos'];
+$correo = $usuario['correo_electronico'];
+$rol = $usuario['rol'];
+
+// Procesar el formulario.
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $nombres = trim($_POST['nombres'] ?? '');
+    $apellidos = trim($_POST['apellidos'] ?? '');
+    $correo = trim($_POST['correo_electronico'] ?? '');
+    $rol = $_POST['rol'] ?? '';
+
+    $contrasena = $_POST['contrasena'] ?? '';
+    $confirmar_contrasena = $_POST['confirmar_contrasena'] ?? '';
+
+    // Validar los campos obligatorios.
+    if (
+        $nombres === '' ||
+        $apellidos === '' ||
+        $correo === '' ||
+        $rol === ''
+    ) {
+        $mensaje = 'Completa todos los campos obligatorios.';
+        $tipo_mensaje = 'error';
+
+    } elseif (
+        strlen($nombres) > 100 ||
+        strlen($apellidos) > 100
+    ) {
+        $mensaje = 'Los nombres y apellidos no deben superar los 100 caracteres.';
+        $tipo_mensaje = 'error';
+
+    } elseif (
+        strlen($correo) > 150 ||
+        filter_var($correo, FILTER_VALIDATE_EMAIL) === false
+    ) {
+        $mensaje = 'Ingresa un correo electrónico válido.';
+        $tipo_mensaje = 'error';
+
+    } elseif (!in_array($rol, ['administrador', 'lector'], true)) {
+        $mensaje = 'El rol seleccionado no es válido.';
+        $tipo_mensaje = 'error';
+
+    } elseif (
+        $contrasena !== '' &&
+        strlen($contrasena) < 8
+    ) {
+        $mensaje = 'La nueva contraseña debe tener al menos 8 caracteres.';
+        $tipo_mensaje = 'error';
+
+    } elseif (
+        $contrasena !== '' &&
+        $contrasena !== $confirmar_contrasena
+    ) {
+        $mensaje = 'Las contraseñas no coinciden.';
+        $tipo_mensaje = 'error';
+
+    } elseif (
+        $contrasena === '' &&
+        $confirmar_contrasena !== ''
+    ) {
+        $mensaje = 'Ingresa una nueva contraseña para poder confirmarla.';
+        $tipo_mensaje = 'error';
+
+    } else {
+
+        try {
+            // Comprobar si otro usuario utiliza el mismo correo.
+            $consulta = $pdo->prepare(
+                'SELECT id_usuario
+                 FROM usuarios
+                 WHERE correo_electronico = :correo
+                   AND id_usuario <> :id_usuario
+                 LIMIT 1'
+            );
+
+            $consulta->execute([
+                ':correo' => $correo,
+                ':id_usuario' => $id_usuario_editar
+            ]);
+
+            if ($consulta->fetch()) {
+                $mensaje = 'Otro usuario ya tiene registrado ese correo electrónico.';
+                $tipo_mensaje = 'error';
+
+            } else {
+
+                // Preparar los parámetros de actualización.
+                $parametros = [
+                    ':nombres' => $nombres,
+                    ':apellidos' => $apellidos,
+                    ':correo' => $correo,
+                    ':rol' => $rol,
+                    ':id_usuario' => $id_usuario_editar
+                ];
+
+                // Actualizar la contraseña únicamente si se proporcionó una nueva.
+                if ($contrasena !== '') {
+
+                    $hash = password_hash(
+                        $contrasena,
+                        PASSWORD_DEFAULT
+                    );
+
+                    $sql = 'UPDATE usuarios
+                            SET nombres = :nombres,
+                                apellidos = :apellidos,
+                                correo_electronico = :correo,
+                                rol = :rol,
+                                contrasena = :contrasena,
+                                actualizado_en = CURRENT_TIMESTAMP
+                            WHERE id_usuario = :id_usuario';
+
+                    $parametros[':contrasena'] = $hash;
+
+                } else {
+
+                    $sql = 'UPDATE usuarios
+                            SET nombres = :nombres,
+                                apellidos = :apellidos,
+                                correo_electronico = :correo,
+                                rol = :rol,
+                                actualizado_en = CURRENT_TIMESTAMP
+                            WHERE id_usuario = :id_usuario';
+                }
+
+                $registro = $pdo->prepare($sql);
+                $registro->execute($parametros);
+
+                // Guardar el mensaje de éxito en la sesión.
+                $_SESSION['mensaje_estado'] = 'Los datos del usuario se actualizaron correctamente.';
+                $_SESSION['tipo_mensaje_estado'] = 'exito';
+
+                // Volver al listado.
+                header('Location: usuarios.php');
+                exit;
+            }
+
+        } catch (PDOException $e) {
+            error_log(
+                'Error al editar usuario en RedVital: ' . $e->getMessage()
+            );
+
+            $mensaje = 'No fue posible actualizar el usuario. Verifica los datos e inténtalo nuevamente.';
+            $tipo_mensaje = 'error';
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,212 +226,6 @@
 </head>
 
 <body>
-    <?php
-
-        $pagina_activa = 'usuarios';
-        
-        // Restringir el acceso a los administradores.
-        $rol_requerido = 'administrador';
-        require_once __DIR__ . '/verificar_rol.php';
-
-        // Conectar con la base de datos.
-        require_once __DIR__ . '/../config/database.php';
-
-        // Inicializar variables.
-        $id_usuario = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $mensaje = '';
-        $tipo_mensaje = '';
-        $usuario = null;
-
-        // Validar el identificador.
-        if (!$id_usuario || $id_usuario < 1) {
-            header('Location: usuarios.php');
-            exit;
-        }
-
-        // Consultar el usuario que se va a editar.
-        try {
-            $consulta = $pdo->prepare(
-                'SELECT id_usuario, nombres, apellidos,
-                        correo_electronico, rol
-                FROM usuarios
-                WHERE id_usuario = :id_usuario
-                LIMIT 1'
-            );
-
-            $consulta->execute([
-                ':id_usuario' => $id_usuario
-            ]);
-
-            $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
-
-        } catch (PDOException $e) {
-            error_log('Error al consultar usuario: ' . $e->getMessage());
-            http_response_code(500);
-            exit('No fue posible consultar los datos del usuario.');
-        }
-
-        // Verificar que el usuario exista.
-        if (!$usuario) {
-            header('Location: usuarios.php');
-            exit;
-        }
-
-        // Inicializar los campos con los datos actuales.
-        $nombres = $usuario['nombres'];
-        $apellidos = $usuario['apellidos'];
-        $correo = $usuario['correo_electronico'];
-        $rol = $usuario['rol'];
-
-        // Mostrar confirmación después de una actualización.
-        if (isset($_GET['actualizado']) && $_GET['actualizado'] === '1') {
-            $mensaje = 'Los datos del usuario se actualizaron correctamente.';
-            $tipo_mensaje = 'exito';
-        }
-
-        // Procesar el formulario.
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $nombres = trim($_POST['nombres'] ?? '');
-            $apellidos = trim($_POST['apellidos'] ?? '');
-            $correo = trim($_POST['correo_electronico'] ?? '');
-            $rol = $_POST['rol'] ?? '';
-
-            $contrasena = $_POST['contrasena'] ?? '';
-            $confirmar_contrasena = $_POST['confirmar_contrasena'] ?? '';
-
-            if (
-                $nombres === '' ||
-                $apellidos === '' ||
-                $correo === '' ||
-                $rol === ''
-            ) {
-                $mensaje = 'Completa todos los campos obligatorios.';
-                $tipo_mensaje = 'error';
-
-            } elseif (
-                strlen($nombres) > 100 ||
-                strlen($apellidos) > 100
-            ) {
-                $mensaje = 'Los nombres y apellidos no deben superar los 100 caracteres.';
-                $tipo_mensaje = 'error';
-
-            } elseif (
-                strlen($correo) > 150 ||
-                filter_var($correo, FILTER_VALIDATE_EMAIL) === false
-            ) {
-                $mensaje = 'Ingresa un correo electrónico válido.';
-                $tipo_mensaje = 'error';
-
-            } elseif (!in_array($rol, ['administrador', 'lector'], true)) {
-                $mensaje = 'El rol seleccionado no es válido.';
-                $tipo_mensaje = 'error';
-
-            } elseif (
-                $contrasena !== '' &&
-                strlen($contrasena) < 8
-            ) {
-                $mensaje = 'La nueva contraseña debe tener al menos 8 caracteres.';
-                $tipo_mensaje = 'error';
-
-            } elseif (
-                $contrasena !== '' &&
-                $contrasena !== $confirmar_contrasena
-            ) {
-                $mensaje = 'Las contraseñas no coinciden.';
-                $tipo_mensaje = 'error';
-
-            } elseif (
-                $contrasena === '' &&
-                $confirmar_contrasena !== ''
-            ) {
-                $mensaje = 'Ingresa una nueva contraseña para poder confirmarla.';
-                $tipo_mensaje = 'error';
-
-            } else {
-
-                try {
-                    // Comprobar si otro usuario utiliza el mismo correo.
-                    $consulta = $pdo->prepare(
-                        'SELECT id_usuario
-                        FROM usuarios
-                        WHERE correo_electronico = :correo
-                        AND id_usuario <> :id_usuario
-                        LIMIT 1'
-                    );
-
-                    $consulta->execute([
-                        ':correo' => $correo,
-                        ':id_usuario' => $id_usuario
-                    ]);
-
-                    if ($consulta->fetch()) {
-                        $mensaje = 'Otro usuario ya tiene registrado ese correo electrónico.';
-                        $tipo_mensaje = 'error';
-
-                    } else {
-
-                        // Preparar los datos que se van a actualizar.
-                        $parametros = [
-                            ':nombres' => $nombres,
-                            ':apellidos' => $apellidos,
-                            ':correo' => $correo,
-                            ':rol' => $rol,
-                            ':id_usuario' => $id_usuario
-                        ];
-
-                        // Actualizar la contraseña solo si se proporcionó una nueva.
-                        if ($contrasena !== '') {
-
-                            $hash = password_hash(
-                                $contrasena,
-                                PASSWORD_DEFAULT
-                            );
-
-                            $sql = 'UPDATE usuarios
-                                    SET nombres = :nombres,
-                                        apellidos = :apellidos,
-                                        correo_electronico = :correo,
-                                        rol = :rol,
-                                        contrasena = :contrasena
-                                    WHERE id_usuario = :id_usuario';
-
-                            $parametros[':contrasena'] = $hash;
-
-                        } else {
-
-                            $sql = 'UPDATE usuarios
-                                    SET nombres = :nombres,
-                                        apellidos = :apellidos,
-                                        correo_electronico = :correo,
-                                        rol = :rol
-                                    WHERE id_usuario = :id_usuario';
-                        }
-
-                        $registro = $pdo->prepare($sql);
-                        $registro->execute($parametros);
-
-                        // Redirigir para evitar repetir el envío del formulario.
-                        header(
-                            'Location: editar_usuario.php?id=' .
-                            $id_usuario . '&actualizado=1'
-                        );
-                        exit;
-                    }
-
-                } catch (PDOException $e) {
-                    error_log(
-                        'Error al editar usuario en RedVital: ' .
-                        $e->getMessage()
-                    );
-
-                    $mensaje = 'No fue posible actualizar el usuario. Verifica los datos e inténtalo nuevamente.';
-                    $tipo_mensaje = 'error';
-                }
-            }
-        }
-
-    ?>
 
     <div class="estructura-administrativa">
             
@@ -257,7 +267,7 @@
                     <?php endif; ?>
     
                     <form
-                        action="editar_usuario.php?id=<?= (int) $id_usuario ?>"
+                        action="editar_usuario.php?id=<?= (int) $id_usuario_editar ?>"
                         method="POST"
                     >
     
