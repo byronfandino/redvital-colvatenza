@@ -77,30 +77,6 @@ $opciones_menu = [
         'lector' => true
     ],
     [
-        'id' => 'dependencias',
-        'nombre' => 'Dependencias',
-        'ruta' => 'dependencias.php',
-        'imagen' => 'dependencias.svg',
-        'administrador' => true,
-        'lector' => true
-    ],
-    [
-        'id' => 'directorio',
-        'nombre' => 'Directorio telefónico',
-        'ruta' => 'directorio.php',
-        'imagen' => 'directorio.svg',
-        'administrador' => true,
-        'lector' => true
-    ],
-    [
-        'id' => 'evacuacion',
-        'nombre' => 'Ruta de evacuación',
-        'ruta' => 'ruta_evacuacion.php',
-        'imagen' => 'evacuacion.svg',
-        'administrador' => true,
-        'lector' => true
-    ],
-    [
         'id' => 'institucional',
         'nombre' => 'Información institucional',
         'ruta' => 'informacion_institucional.php',
