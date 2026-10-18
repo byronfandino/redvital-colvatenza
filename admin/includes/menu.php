@@ -1,6 +1,7 @@
 <?php
 
 // Obtener los datos del usuario autenticado.
+$id_usuario = $_SESSION['id_usuario'] ?? '';
 $nombre_usuario = $_SESSION['nombres'] ?? 'Usuario';
 $apellido_usuario = $_SESSION['apellidos'] ?? '';
 $rol_usuario = $_SESSION['rol'] ?? 'lector';
@@ -31,7 +32,15 @@ $opciones_menu = [
         'id' => 'usuarios',
         'nombre' => 'Usuarios',
         'ruta' => 'usuarios.php',
-        'imagen' => 'usuarios.svg',
+        'imagen' => 'usuarios-blanco.svg',
+        'administrador' => true,
+        'lector' => false
+    ],
+    [
+        'id' => 'cursos',
+        'nombre' => 'cursos',
+        'ruta' => 'cursos.php',
+        'imagen' => 'cursos.svg',
         'administrador' => true,
         'lector' => false
     ],
@@ -47,13 +56,13 @@ $opciones_menu = [
         'id' => 'brigadistas',
         'nombre' => 'Brigadistas',
         'ruta' => 'brigadistas.php',
-        'imagen' => 'brigadistas.svg',
+        'imagen' => 'brigadistas-blanco.svg',
         'administrador' => true,
         'lector' => true
     ],
     [
         'id' => 'emergencias',
-        'nombre' => 'Clasificación de emergencias',
+        'nombre' => 'Emergencias',
         'ruta' => 'emergencias.php',
         'imagen' => 'emergencias.svg',
         'administrador' => true,

@@ -1,391 +1,334 @@
-/* Estilos generales de la gestión de usuarios */
+
+/* Contenedor principal de la gestión de usuarios */
 .gestion-usuarios {
-    min-height: 100vh;
-    padding: 0 1rem 1rem 1rem;
-    background-color: #f3f6f5;
-    color: #263746;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
 }
 
 /* Encabezado de la página */
 .encabezado-usuarios {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 25px;
-    margin-bottom: 30px;
-    padding: 28px 32px;
-    border-radius: 14px;
-    background-color: #075447;
-    color: #ffffff;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
 }
 
 .encabezado-usuarios h1 {
-    margin: 0 0 10px;
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 1.3;
+    margin: 0 0 8px;
+    color: #173c35;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 .encabezado-usuarios p {
     margin: 0;
-    color: #d1e8e1;
+    color: #64736f;
     font-size: 15px;
     line-height: 1.6;
 }
 
-/* Contenido principal */
-.contenido-usuarios {
-    padding: 28px;
-    border: 1px solid #e0e8e5;
-    border-radius: 14px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 14px rgba(20, 50, 40, 0.04);
-}
-
-/* Resumen y acciones */
-.resumen-usuarios {
-    display: flex;
-    justify-content: space-between;
+/* Botón principal */
+.boton-principal {
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.resumen-usuarios h2 {
-    margin: 0 0 8px;
-    color: #075447;
-    font-size: 23px;
-}
-
-.resumen-usuarios p {
-    margin: 0;
-    color: #586773;
-    font-size: 15px;
-}
-
-.resumen-usuarios strong {
-    color: #075447;
-    font-size: 18px;
-}
-
-/* Botones y enlaces */
-.boton-principal,
-.boton-secundario {
-    display: inline-block;
-    padding: 12px 18px;
-    border: 1px solid transparent;
+    justify-content: center;
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 12px 20px;
+    border: 1px solid #075447;
     border-radius: 8px;
+    background-color: #075447;
+    color: #ffffff;
     font-size: 14px;
-    font-weight: 700;
-    text-align: center;
+    font-weight: 600;
     text-decoration: none;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.boton-principal {
-    background-color: #087f5b;
-    color: #ffffff;
-}
-
 .boton-principal:hover {
-    background-color: #056747;
+    border-color: #063e35;
+    background-color: #063e35;
 }
 
-.boton-secundario {
-    flex-shrink: 0;
-    border-color: rgba(255, 255, 255, 0.5);
-    background-color: transparent;
-    color: #ffffff;
+/* Contenedor del contenido */
+.contenido-usuarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #e1e9e6;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 12px rgba(20, 55, 46, 0.05);
 }
 
-.boton-secundario:hover {
-    background-color: rgba(255, 255, 255, 0.12);
+/* Resumen de usuarios registrados */
+.resumen-usuarios {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.boton-principal:focus-visible,
-.boton-secundario:focus-visible {
-    outline: 3px solid #65b99b;
-    outline-offset: 3px;
+.resumen-usuarios h2 {
+    margin: 0 0 6px;
+    color: #173c35;
+    font-size: 19px;
+    font-weight: 700;
 }
 
-/* Contenedor desplazable de la tabla */
+.resumen-usuarios p {
+    margin: 0;
+    color: #64736f;
+    font-size: 14px;
+}
+
+.resumen-usuarios strong {
+    color: #075447;
+    font-weight: 700;
+}
+
+/* Contenedor con desplazamiento horizontal */
 .tabla-contenedor {
     width: 100%;
     overflow-x: auto;
-    border: 1px solid #e0e8e5;
-    border-radius: 10px;
+    border: 1px solid #e1e9e6;
+    border-radius: 8px;
 }
 
 /* Tabla de usuarios */
 .tabla-usuarios {
     width: 100%;
+    min-width: 1450px;
     border-collapse: collapse;
     background-color: #ffffff;
-    font-size: 14px;
-    text-align: left;
 }
 
-.tabla-usuarios thead {
-    background-color: #e8f2ee;
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #e8eeeb;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 13px;
+    white-space: nowrap;
 }
 
 .tabla-usuarios th {
-    text-align: center;
-    padding: 16px 14px;
-    color: #075447;
-    font-size: 13px;
+    background-color: #f0f6f3;
+    color: #244b41;
+    font-size: 12px;
     font-weight: 700;
-    white-space: nowrap;
 }
 
-.tabla-usuarios td {
-    padding: 15px 14px;
-    border-top: 1px solid #e8eeeb;
-    color: #43535e;
-    line-height: 1.5;
-    vertical-align: middle;
+.tabla-usuarios tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .tabla-usuarios tbody tr:hover {
-    background-color: #f7faf8;
+    background-color: #f8fbf9;
 }
 
-.tabla-usuarios tbody tr:first-child td {
-    border-top: none;
-}
-
-/* Acciones de cada usuario */
-.acciones-usuario {
-    text-align: center;
-    min-width: 190px;
-    white-space: nowrap;
-}
-
-.formulario-accion {
-    display: inline-block;
-    margin: 0 0 0 5px;
-}
-
-.boton-accion {
-    display: inline-block;
-    padding: 8px 10px;
-    border: 1px solid transparent;
+/* Etiquetas de rol */
+.etiqueta-rol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
     border-radius: 6px;
-    font-family: inherit;
+    background-color: #eaf1ee;
+    color: #31584c;
     font-size: 12px;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-weight: 600;
 }
 
-.boton-editar {
-    background-color: #e1f0fa;
-    color: #185783;
-}
-
-.boton-editar:hover {
-    background-color: #cce5f5;
-}
-
-.boton-desactivar {
-    background-color: #fce8e8;
-    color: #a12c35;
-}
-
-.boton-desactivar:hover {
-    background-color: #f7d3d5;
-}
-
-.boton-activar {
-    background-color: #e2f5e9;
-    color: #17683b;
-}
-
-.boton-activar:hover {
-    background-color: #ccebd7;
-}
-
-.boton-accion:focus-visible {
-    outline: 3px solid #65b99b;
-    outline-offset: 2px;
-}
-
-/* Etiquetas de rol y estado */
-.etiqueta-rol,
+/* Etiquetas de estado */
 .etiqueta-estado {
-    display: inline-block;
-    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.etiqueta-rol {
-    background-color: #e1f3eb;
-    color: #075447;
+    font-weight: 600;
 }
 
 .estado-activo {
     background-color: #e2f5e9;
-    color: #17683b;
+    color: #187343;
 }
 
 .estado-inactivo {
-    background-color: #fce8e8;
-    color: #a12c35;
+    background-color: #fde9e7;
+    color: #b42318;
 }
 
-/* Mensajes de error */
-.mensaje-error {
-    margin-bottom: 20px;
-    padding: 15px 18px;
-    border: 1px solid #e5a7aa;
-    border-radius: 9px;
-    background-color: #fff0f0;
-    color: #922b32;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* Mensajes de estado del sistema */
-.mensaje-formulario {
+/* Acciones de cada usuario */
+.acciones-usuario {
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin: 0 0 24px;
-    padding: 16px 20px;
+    align-items: center;
+    gap: 8px;
+}
+
+.formulario-accion {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* Botones de acción */
+.boton-accion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 8px 12px;
     border: 1px solid transparent;
-    border-left-width: 5px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.boton-editar {
+    border-color: #cbded5;
+    background-color: #edf5f0;
+    color: #075447;
+}
+
+.boton-editar:hover {
+    border-color: #a9cabc;
+    background-color: #dcece3;
+}
+
+.boton-desactivar {
+    border-color: #f2c7c3;
+    background-color: #fff0ef;
+    color: #b42318;
+}
+
+.boton-desactivar:hover {
+    border-color: #e9aaa4;
+    background-color: #fde2df;
+}
+
+.boton-activar {
+    border-color: #b8dfc5;
+    background-color: #e8f7ed;
+    color: #187343;
+}
+
+.boton-activar:hover {
+    border-color: #91cda5;
+    background-color: #d5f0df;
+}
+
+/* Datos sin registro */
+.dato-sin-registro {
+    color: #78858d;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Mensajes de estado */
+.mensaje-formulario {
+    padding: 14px 16px;
+    border: 1px solid transparent;
     border-radius: 8px;
     font-size: 14px;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-    animation: aparecer-mensaje 0.25s ease-out;
+    line-height: 1.5;
 }
 
-/* Mensaje de operación exitosa */
 .mensaje-exito {
-    border-color: #a7d9bd;
-    border-left-color: #198754;
-    background-color: #edf8f0;
-    color: #17663a;
+    border-color: #b8dfc5;
+    background-color: #e8f7ed;
+    color: #187343;
 }
 
-/* Mensaje de error */
 .mensaje-error {
-    border-color: #efb6b6;
-    border-left-color: #c62828;
-    background-color: #fff0f0;
-    color: #a51d1d;
+    border-color: #f2c7c3;
+    background-color: #fff0ef;
+    color: #b42318;
 }
 
-/* Mensaje sin registros */
+/* Mensaje cuando no existen registros */
 .mensaje-vacio {
-    margin: 20px 0;
-    padding: 28px;
-    border: 1px solid #dce8e3;
-    border-radius: 10px;
-    background-color: #f7faf8;
+    padding: 36px 24px;
+    border: 1px dashed #cbded5;
+    border-radius: 8px;
+    background-color: #f8fbf9;
     text-align: center;
 }
 
 .mensaje-vacio h3 {
     margin: 0 0 8px;
-    color: #075447;
+    color: #244b41;
     font-size: 18px;
 }
 
 .mensaje-vacio p {
     margin: 0;
-    color: #52665d;
+    color: #64736f;
     font-size: 14px;
     line-height: 1.6;
 }
 
-/* Aparición suave de los mensajes */
-@keyframes aparecer-mensaje {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Adaptación para tabletas y teléfonos */
+/* Ajustes para tabletas */
 @media (max-width: 1024px) {
-    .mensaje-formulario {
-        gap: 10px;
-        margin-bottom: 20px;
-        padding: 14px 16px;
-        font-size: 13px;
-    }
-
-    .mensaje-vacio {
-        padding: 22px 16px;
-    }
-}
-
-/* Respetar la preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-    .mensaje-formulario {
-        animation: none;
-    }
-}
-
-
-
-/* Adaptación para tabletas */
-@media (max-width: 768px) {
-    /* .gestion-usuarios {
-        padding: 30px 4%;
-    } */
-
-    .encabezado-usuarios {
-        align-items: flex-start;
-        padding: 25px;
-    }
-
-    .encabezado-usuarios h1 {
-        font-size: 27px;
+    .gestion-usuarios {
+        gap: 20px;
     }
 
     .contenido-usuarios {
-        padding: 22px;
+        padding: 20px;
+    }
+
+    .tabla-usuarios {
+        min-width: 1450px;
+    }
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 768px) {
+    .encabezado-usuarios {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .encabezado-usuarios h1 {
+        font-size: 24px;
+    }
+
+    .boton-principal {
+        width: 100%;
+    }
+
+    .contenido-usuarios {
+        gap: 18px;
+        padding: 16px;
     }
 
     .resumen-usuarios {
         align-items: flex-start;
     }
 
-    .tabla-usuarios {
-        min-width: 1200px;
+    .tabla-usuarios th,
+    .tabla-usuarios td {
+        padding: 12px;
     }
 }
 
-/* Adaptación para móviles */
+/* Ajustes para teléfonos pequeños */
 @media (max-width: 480px) {
-    .gestion-usuarios {
-        padding: 22px 15px;
-    }
-
-    .encabezado-usuarios {
-        flex-direction: column;
-        gap: 18px;
-        margin-bottom: 22px;
-        padding: 22px 18px;
-        border-radius: 11px;
-    }
-
     .encabezado-usuarios h1 {
-        font-size: 23px;
+        font-size: 22px;
     }
 
     .encabezado-usuarios p {
@@ -393,31 +336,14 @@
     }
 
     .contenido-usuarios {
-        padding: 18px 14px;
-        border-radius: 11px;
-    }
-
-    .resumen-usuarios {
-        flex-direction: column;
-        gap: 18px;
-        margin-bottom: 22px;
+        padding: 12px;
     }
 
     .resumen-usuarios h2 {
-        font-size: 21px;
-    }
-
-    .boton-principal,
-    .boton-secundario {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .tabla-usuarios {
-        min-width: 1050px;
+        font-size: 17px;
     }
 
     .mensaje-vacio {
-        padding: 32px 15px;
+        padding: 28px 16px;
     }
 }

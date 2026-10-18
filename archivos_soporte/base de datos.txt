@@ -1,26 +1,8 @@
-Crear la base de datos
-
-CREATE DATABASE redvital_colvatenza
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
-
+-- 1.Crear la base de datos
+CREATE DATABASE redvital_colvatenza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE redvital_colvatenza;
-------------------------------------------------------------------------------------------------------
-Tabla de usuarios
 
-| Campo              | Tipo MySQL                      | Propósito                            |
-|--------------------|---------------------------------|--------------------------------------|
-| id_usuario         | INT UNSIGNED                    | Clave primaria autoincremental.      |
-| nombres            | VARCHAR(100)                    | Nombres del usuario.                 |
-| apellidos          | VARCHAR(100)                    | Apellidos del usuario.               |
-| correo_electronico | VARCHAR(150)                    | Correo único para iniciar sesión.    |
-| contrasena         | VARCHAR(255)                    | Hash de la contraseña.               |
-| rol                | ENUM('administrador', 'lector') | Define el perfil del usuario.        |
-| activo             | TINYINT(1)                      | Indica si la cuenta está habilitada. |
-| ultimo_acceso      | DATETIME NULL                   | Último inicio de sesión.             |
-| creado_en          | TIMESTAMP                       | Fecha de creación.                   |
-| actualizado_en     | TIMESTAMP                       | Última modificación.                 |
-
+-- 2. Tabla de usuarios
 CREATE TABLE usuarios (
     id_usuario INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(100) NOT NULL,
@@ -36,5 +18,304 @@ CREATE TABLE usuarios (
         ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
-------------------------------------------------------------------------------------------------------
+-- 3. Catálogo de tipos de documento.
+CREATE TABLE tipos_documento (
+    id_tipo_documento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    abreviatura VARCHAR(10) NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+    UNIQUE KEY uq_tipos_documento_nombre (nombre),
+    UNIQUE KEY uq_tipos_documento_abreviatura (abreviatura)
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
 
+-- 3.1 Agregar registros de tipos de documentos
+INSERT INTO tipos_documento (nombre, abreviatura)
+VALUES
+    ('Tarjeta de identidad', 'TI'),
+    ('Cédula de ciudadanía', 'CC'),
+    ('Registro civil', 'RC'),
+    ('Cédula de extranjería', 'CE'),
+    ('Pasaporte', 'PA');
+
+-- 4. Catálogo de cursos y grupos.
+CREATE TABLE cursos (
+    id_curso INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    grado VARCHAR(20) NOT NULL,
+    grupo VARCHAR(10) NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_cursos_grado_grupo (grado, grupo),
+    CONSTRAINT fk_cursos_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    CONSTRAINT fk_cursos_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+-- 5. Tabla de estudiantes.
+CREATE TABLE estudiantes (
+    id_estudiante INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_documento INT UNSIGNED NOT NULL,
+    numero_documento VARCHAR(30) NOT NULL,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE NULL,
+    id_curso INT UNSIGNED NOT NULL,
+
+    tipo_sangre ENUM(
+        'A+', 'A-', 'B+', 'B-',
+        'AB+', 'AB-', 'O+', 'O-'
+    ) NULL,
+
+    direccion_residencia VARCHAR(200) NULL,
+    telefono_contacto VARCHAR(20) NULL,
+    condiciones_especiales TEXT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    UNIQUE KEY uq_estudiantes_documento (
+        id_tipo_documento,
+        numero_documento
+    ),
+
+    KEY idx_estudiantes_apellidos (apellidos),
+    KEY idx_estudiantes_curso (id_curso),
+
+    CONSTRAINT fk_estudiantes_tipo_documento
+        FOREIGN KEY (id_tipo_documento)
+        REFERENCES tipos_documento (id_tipo_documento)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_estudiantes_curso
+        FOREIGN KEY (id_curso)
+        REFERENCES cursos (id_curso)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_estudiantes_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_estudiantes_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+-- 6. Tabla de acudientes.
+CREATE TABLE acudientes (
+    id_acudiente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    numero_documento VARCHAR(30) NULL,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    telefono_contacto VARCHAR(20) NOT NULL,
+    correo_electronico VARCHAR(150) NULL,
+    direccion_residencia VARCHAR(200) NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    KEY idx_acudientes_apellidos (apellidos),
+    KEY idx_acudientes_documento (numero_documento),
+
+    CONSTRAINT fk_acudientes_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_acudientes_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+-- 6. Relación entre estudiantes y acudientes.
+CREATE TABLE estudiante_acudiente (
+    id_estudiante_acudiente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id_estudiante INT UNSIGNED NOT NULL,
+    id_acudiente INT UNSIGNED NOT NULL,
+    parentesco VARCHAR(40) NOT NULL,
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    UNIQUE KEY uq_estudiante_acudiente (
+        id_estudiante,
+        id_acudiente
+    ),
+
+    KEY idx_estudiante_acudiente_acudiente (id_acudiente),
+
+    CONSTRAINT fk_estudiante_acudiente_estudiante
+        FOREIGN KEY (id_estudiante)
+        REFERENCES estudiantes (id_estudiante)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_estudiante_acudiente_acudiente
+        FOREIGN KEY (id_acudiente)
+        REFERENCES acudientes (id_acudiente)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_estudiante_acudiente_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_estudiante_acudiente_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+-- 7. Tabla de brigadas.
+CREATE TABLE brigadas (
+    id_brigada INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    color VARCHAR(7) NOT NULL,
+    icono VARCHAR(200) NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    UNIQUE KEY uq_brigadas_nombre (nombre),
+
+    CONSTRAINT fk_brigadas_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_brigadas_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+-- 8. Tabla de brigadistas.
+CREATE TABLE brigadistas (
+    id_brigadista INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    id_brigada INT UNSIGNED NOT NULL,
+    id_tipo_documento INT UNSIGNED NOT NULL,
+    numero_documento VARCHAR(30) NOT NULL,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    dependencia VARCHAR(100) NOT NULL,
+    celular VARCHAR(20) NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
+
+    creado_por INT UNSIGNED NOT NULL,
+    actualizado_por INT UNSIGNED NULL,
+    creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    actualizado_en TIMESTAMP NULL DEFAULT NULL
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    KEY idx_brigadistas_brigada (id_brigada),
+    KEY idx_brigadistas_apellidos (apellidos),
+
+    UNIQUE KEY uq_brigadistas_documento (
+        id_tipo_documento,
+        numero_documento
+    ),
+
+    CONSTRAINT fk_brigadistas_tipo_documento
+        FOREIGN KEY (id_tipo_documento)
+        REFERENCES tipos_documento (id_tipo_documento)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_brigadistas_brigada
+        FOREIGN KEY (id_brigada)
+        REFERENCES brigadas (id_brigada)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_brigadistas_creado_por
+        FOREIGN KEY (creado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    CONSTRAINT fk_brigadistas_actualizado_por
+        FOREIGN KEY (actualizado_por)
+        REFERENCES usuarios (id_usuario)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_unicode_ci;
+
+
+-- Insertamos registros relacionando el id del primer administrador.
+INSERT INTO brigadas ( nombre, descripcion, color, icono, creado_por)
+VALUES (
+    'Brigada de Contra incendios',
+    'Prevención y control de incendios.',
+    '#E53935',
+    'incendio.png',
+    1
+),
+(
+    'Brigada de Primeros Auxilios',
+    'Atención inicial en caso de accidentes o lesiones.',
+    '#16A34A',
+    'primeros-auxilios.png',
+    1
+),
+(
+    'Brigada de Evacuación y Rescate',
+    'Apoyo en evacuación y traslado seguro.',
+    '#2563EB',
+    'brigadistas.svg',
+    1
+);
