@@ -53,9 +53,9 @@ $opciones_menu = [
         'lector' => true
     ],
     [
-        'id' => 'Brigadas',
+        'id' => 'brigadas',
         'nombre' => 'Brigadas',
-        'ruta' => 'Brigadas.php',
+        'ruta' => 'brigadas.php',
         'imagen' => 'brigadas.svg',
         'administrador' => true,
         'lector' => false
@@ -73,14 +73,6 @@ $opciones_menu = [
         'nombre' => 'Emergencias',
         'ruta' => 'emergencias.php',
         'imagen' => 'emergencias.svg',
-        'administrador' => true,
-        'lector' => true
-    ],
-    [
-        'id' => 'institucional',
-        'nombre' => 'Información institucional',
-        'ruta' => 'informacion_institucional.php',
-        'imagen' => 'institucional.svg',
         'administrador' => true,
         'lector' => true
     ]

@@ -1,0 +1,343 @@
+
+/* Estilos generales del formulario */
+.crear-emergencia {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+/* Encabezado del formulario */
+.encabezado-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 28px 32px;
+    border-radius: 14px;
+    background-color: #075447;
+    color: #ffffff;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.encabezado-formulario h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.encabezado-formulario p {
+    margin: 0;
+    color: #d1e8e1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Contenedor principal del formulario */
+.contenido-formulario {
+    padding: 32px;
+    border: 1px solid #e0e8e5;
+    border-radius: 14px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 14px rgba(20, 50, 40, 0.04);
+}
+
+/* Introducción del formulario */
+.introduccion-formulario {
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e8eeeb;
+}
+
+.introduccion-formulario h2 {
+    margin: 0 0 8px;
+    color: #075447;
+    font-size: 23px;
+}
+
+.introduccion-formulario p {
+    margin: 0;
+    color: #586773;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Distribución de los campos */
+.campos-formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 22px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+/* Etiquetas */
+.campo-formulario label {
+    margin-bottom: 9px;
+    color: #263746;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Campos de texto */
+.campo-formulario input {
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd8d2;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffffff;
+    color: #263746;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-formulario input:focus {
+    border-color: #087f5b;
+    box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.12);
+}
+
+.campo-formulario input::placeholder {
+    color: #788596;
+}
+
+/* Indicaciones de los campos */
+.campo-formulario small {
+    margin-top: 8px;
+    color: #64736d;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Mensajes del formulario */
+.mensaje-formulario {
+    margin-bottom: 24px;
+    padding: 15px 18px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.mensaje-error {
+    border-color: #e5a7aa;
+    background-color: #fff0f0;
+    color: #922b32;
+}
+
+.mensaje-exito {
+    border-color: #a8d9b9;
+    background-color: #eaf7ee;
+    color: #17683b;
+}
+
+/* Enlace para regresar después del registro */
+.enlace-regresar {
+    display: inline-block;
+    margin: -8px 0 24px;
+    color: #087f5b;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.enlace-regresar:hover {
+    text-decoration: underline;
+}
+
+/* Acciones del formulario */
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e8eeeb;
+}
+
+/* Botones de acciones del formulario */
+.boton-cancelar,
+.boton-guardar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Botón secundario */
+.boton-cancelar {
+    background-color: #ffffff;
+    color: #263746;
+    border: 1px solid #cbd5d1;
+}
+
+.boton-cancelar:hover {
+    background-color: #f3f7f5;
+}
+
+/* Botón principal */
+.boton-guardar {
+    background-color: #087f5b;
+    color: #ffffff;
+    border: 1px solid #087f5b;
+}
+
+.boton-guardar:hover {
+    background-color: #075f46;
+}
+
+/* Indicadores de navegación con teclado */
+.boton-cancelar:focus-visible,
+.boton-guardar:focus-visible,
+.enlace-regresar:focus-visible {
+    outline: 3px solid #65b99b;
+    outline-offset: 3px;
+}
+
+/* Adaptación para tabletas */
+@media (max-width: 768px) {
+    .crear-emergencia {
+        padding: 30px 4%;
+    }
+
+    .encabezado-formulario {
+        align-items: flex-start;
+        padding: 25px;
+    }
+
+    .encabezado-formulario h1 {
+        font-size: 27px;
+    }
+
+    .contenido-formulario {
+        padding: 25px;
+    }
+
+    .campos-formulario {
+        gap: 22px 18px;
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .crear-emergencia {
+        padding: 22px 15px;
+    }
+
+    .encabezado-formulario {
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 22px;
+        padding: 22px 18px;
+        border-radius: 11px;
+    }
+
+    .encabezado-formulario h1 {
+        font-size: 23px;
+    }
+
+    .encabezado-formulario p {
+        font-size: 14px;
+    }
+
+    .contenido-formulario {
+        padding: 22px 17px;
+        border-radius: 11px;
+    }
+
+    .introduccion-formulario h2 {
+        font-size: 21px;
+    }
+
+    .campos-formulario {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .campo-completo {
+        grid-column: auto;
+    }
+
+    .campo-formulario input {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .acciones-formulario {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 26px;
+        padding-top: 22px;
+    }
+
+    .boton-cancelar,
+    .boton-guardar {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+
+
+
+/* Alertas del listado de emergencias */
+.alerta-emergencias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    padding: 16px 20px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* Alerta de registro exitoso */
+.alerta-exito {
+    color: #17683b;
+    background-color: #eaf7ee;
+    border-color: #a8d9b9;
+}
+
+/* Alerta de error */
+.alerta-error {
+    color: #922b32;
+    background-color: #fff0f0;
+    border-color: #e5a7aa;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .alerta-emergencias {
+        margin-bottom: 18px;
+        padding: 14px 15px;
+        font-size: 13px;
+    }
+}

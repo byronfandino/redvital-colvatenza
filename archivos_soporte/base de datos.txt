@@ -163,7 +163,7 @@ CREATE TABLE acudientes (
   COLLATE=utf8mb4_unicode_ci;
 
 
--- 6. Relación entre estudiantes y acudientes.
+-- 7. Relación entre estudiantes y acudientes.
 CREATE TABLE estudiante_acudiente (
     id_estudiante_acudiente INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     id_estudiante INT UNSIGNED NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE estudiante_acudiente (
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_unicode_ci;
 
--- 7. Tabla de brigadas.
+-- 8. Tabla de brigadas.
 CREATE TABLE brigadas (
     id_brigada INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -242,7 +242,7 @@ CREATE TABLE brigadas (
   COLLATE=utf8mb4_unicode_ci;
 
 
--- 8. Tabla de brigadistas.
+-- 9. Tabla de brigadistas.
 CREATE TABLE brigadistas (
     id_brigadista INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     id_brigada INT UNSIGNED NOT NULL,
@@ -319,16 +319,19 @@ VALUES (
     1
 );
 
+-- 10. TablaEmergencias
 CREATE TABLE emergencia (
     id_emergencia INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     telefono VARCHAR(20) NOT NULL,
+    activo TINYINT(1) NOT NULL DEFAULT 1,
     creado_por INT UNSIGNED NOT NULL,
     creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     actualizado_por INT UNSIGNED NULL,
     actualizado_en TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
 
     KEY idx_emergencia_nombre (nombre),
+    KEY idx_emergencia_activo (activo),
 
     CONSTRAINT fk_emergencia_creado_por
         FOREIGN KEY (creado_por)
@@ -341,26 +344,28 @@ CREATE TABLE emergencia (
         REFERENCES usuarios(id_usuario)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
+
 ) ENGINE=InnoDB
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_unicode_ci;
-  
+
 INSERT INTO emergencia (
     nombre,
     telefono,
+    activo,
     creado_por
 ) VALUES
-    ('Alcaldía', '310 441 9567', 1),
-    ('Urgencias', '316 742 8505', 1),
-    ('Ambulancia', '316 742 8515', 1),
-    ('Bomberos', '314 219 4981', 1),
-    ('Defensa Civil', '310 623 2796', 1),
-    ('Estación de Policía', '310 442 5020', 1),
-    ('Cuadrante', '302 351 2353', 1),
-    ('EBSA Guateque', '312 497 1303', 1),
-    ('Servicios Públicos', '310 443 2457', 1),
-    ('Concesión Sisga', '316 549 7841', 1),
-    ('ENERCER', '321 349 9349', 1),
-    ('Comisaría de Familia', '310 442 5041', 1),
-    ('Personería', '310 888 0328', 1),
-    ('Dirección Local de Salud', '310 442 6051', 1);
+    ('Alcaldía', '310 441 9567', 1, 1),
+    ('Urgencias', '316 742 8505', 1, 1),
+    ('Ambulancia', '316 742 8515', 1, 1),
+    ('Bomberos', '314 219 4981', 1, 1),
+    ('Defensa Civil', '310 623 2796', 1, 1),
+    ('Estación de Policía', '310 442 5020', 1, 1),
+    ('Cuadrante', '302 351 2353', 1, 1),
+    ('EBSA Guateque', '312 497 1303', 1, 1),
+    ('Servicios Públicos', '310 443 2457', 1, 1),
+    ('Concesión Sisga', '316 549 7841', 1, 1),
+    ('ENERCER', '321 349 9349', 1, 1),
+    ('Comisaría de Familia', '310 442 5041', 1, 1),
+    ('Personería', '310 888 0328', 1, 1),
+    ('Dirección Local de Salud', '310 442 6051', 1, 1);

@@ -1,13 +1,14 @@
-
 <?php
 
 require_once __DIR__ . '/config/database.php';
 
-// Cargar las brigadas activas.
+// Inicializar las variables de las brigadas.
 $brigadas = [];
 $brigadistasPorBrigada = [];
+$telefonosEmergencia = [];
 $error_carga = false;
 
+// Cargar las brigadas y los brigadistas activos.
 try {
     $consulta_brigadas = $pdo->query("
         SELECT
@@ -23,7 +24,7 @@ try {
 
     $brigadas = $consulta_brigadas->fetchAll(PDO::FETCH_ASSOC);
 
-    // Cargar los brigadistas activos de las brigadas activas.
+    // Cargar los brigadistas de las brigadas activas.
     $consulta_brigadistas = $pdo->query("
         SELECT
             b.id_brigadista,
@@ -33,11 +34,11 @@ try {
             b.apellidos,
             b.dependencia,
             b.celular
-        FROM brigadistas b
-        INNER JOIN brigadas br
+        FROM brigadistas AS b
+        INNER JOIN brigadas AS br
             ON br.id_brigada = b.id_brigada
         WHERE b.activo = 1
-          AND br.activo = 1
+            AND br.activo = 1
         ORDER BY b.apellidos ASC, b.nombres ASC
     ");
 
@@ -46,76 +47,40 @@ try {
     // Agrupar los brigadistas según su brigada.
     foreach ($registros_brigadistas as $brigadista) {
         $id_brigada = (int) $brigadista['id_brigada'];
-
         $brigadistasPorBrigada[$id_brigada][] = $brigadista;
     }
+
 } catch (Throwable $e) {
-    error_log('Error al cargar brigadas y brigadistas públicos: ' . $e->getMessage());
+    error_log(
+        'Error al cargar brigadas y brigadistas públicos: '
+        . $e->getMessage()
+    );
 
     $brigadas = [];
     $brigadistasPorBrigada = [];
     $error_carga = true;
 }
 
-// Datos de teléfonos de emergencia.
-$telefonosEmergencia = [
-    [
-        'nombre' => 'Alcaldía',
-        'telefono' => '310 441 9567',
-    ],
-    [
-        'nombre' => 'Urgencias',
-        'telefono' => '316 742 8505',
-    ],
-    [
-        'nombre' => 'Ambulancia',
-        'telefono' => '316 742 8515',
-    ],
-    [
-        'nombre' => 'Bomberos',
-        'telefono' => '314 219 4981',
-    ],
-    [
-        'nombre' => 'Defensa Civil',
-        'telefono' => '310 623 2796',
-    ],
-    [
-        'nombre' => 'Estación de Policía',
-        'telefono' => '310 442 5020',
-    ],
-    [
-        'nombre' => 'Cuadrante',
-        'telefono' => '302 351 2353',
-    ],
-    [
-        'nombre' => 'EBSA Guateque',
-        'telefono' => '312 497 1303',
-    ],
-    [
-        'nombre' => 'Servicios Públicos',
-        'telefono' => '310 443 2457',
-    ],
-    [
-        'nombre' => 'Concesión Sisga',
-        'telefono' => '316 549 7841',
-    ],
-    [
-        'nombre' => 'ENERCER',
-        'telefono' => '321 349 9349',
-    ],
-    [
-        'nombre' => 'Comisaría de Familia',
-        'telefono' => '310 442 5041',
-    ],
-    [
-        'nombre' => 'Personería',
-        'telefono' => '310 888 0328',
-    ],
-    [
-        'nombre' => 'Dirección Local de Salud',
-        'telefono' => '310 442 6051',
-    ],
-];
+// Cargar los teléfonos de emergencia activos desde MySQL.
+try {
+    $consulta_emergencias = $pdo->query("
+        SELECT
+            id_emergencia,
+            nombre,
+            telefono
+        FROM emergencia
+        WHERE activo = 1
+        ORDER BY nombre ASC
+    ");
+
+    $telefonosEmergencia = $consulta_emergencias->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (Throwable $e) {
+    error_log(
+        'Error al cargar los teléfonos de emergencia públicos: '
+        . $e->getMessage()
+    );
+}
 
 // Proteger los valores mostrados en HTML.
 function escapar_html($valor): string
@@ -197,9 +162,9 @@ function obtener_color_brigada($color): string
 
                         <?php foreach ($brigadas as $brigada): ?>
                             <?php
-                                $id_brigada = (int) $brigada['id_brigada'];
-                                $color_brigada = obtener_color_brigada($brigada['color']);
-                                $icono_brigada = 'assets/images/' . basename($brigada['icono']);
+                            $id_brigada = (int) $brigada['id_brigada'];
+                            $color_brigada = obtener_color_brigada($brigada['color']);
+                            $icono_brigada = 'assets/images/' . basename($brigada['icono']);
                             ?>
 
                             <article
@@ -253,10 +218,10 @@ function obtener_color_brigada($color): string
 
                     <?php foreach ($brigadas as $brigada): ?>
                         <?php
-                            $id_brigada = (int) $brigada['id_brigada'];
-                            $color_brigada = obtener_color_brigada($brigada['color']);
-                            $icono_brigada = 'assets/images/' . basename($brigada['icono']);
-                            $integrantes = $brigadistasPorBrigada[$id_brigada] ?? [];
+                        $id_brigada = (int) $brigada['id_brigada'];
+                        $color_brigada = obtener_color_brigada($brigada['color']);
+                        $icono_brigada = 'assets/images/' . basename($brigada['icono']);
+                        $integrantes = $brigadistasPorBrigada[$id_brigada] ?? [];
                         ?>
 
                         <article
@@ -364,30 +329,40 @@ function obtener_color_brigada($color): string
 
                 <div class="directorio-emergencias">
 
-                    <?php foreach ($telefonosEmergencia as $contacto): ?>
+                    <?php if (!empty($telefonosEmergencia)): ?>
 
-                        <article class="tarjeta-contacto-emergencia">
+                        <?php foreach ($telefonosEmergencia as $contacto): ?>
 
-                            <div class="contacto-informacion">
-                                <h3>
-                                    <?= escapar_html($contacto['nombre']) ?>
-                                </h3>
+                            <article class="tarjeta-contacto-emergencia">
 
-                                <p>
-                                    <?= escapar_html($contacto['telefono']) ?>
-                                </p>
-                            </div>
+                                <div class="contacto-informacion">
+                                    <h3>
+                                        <?= escapar_html($contacto['nombre']) ?>
+                                    </h3>
 
-                            <a
-                                href="tel:<?= preg_replace('/\s+/', '', $contacto['telefono']) ?>"
-                                class="boton-llamar"
-                            >
-                                Llamar
-                            </a>
+                                    <p>
+                                        <?= escapar_html($contacto['telefono']) ?>
+                                    </p>
+                                </div>
 
-                        </article>
+                                <a
+                                    href="tel:<?= escapar_html(preg_replace('/[^0-9+]/', '', $contacto['telefono'])) ?>"
+                                    class="boton-llamar"
+                                >
+                                    Llamar
+                                </a>
 
-                    <?php endforeach; ?>
+                            </article>
+
+                        <?php endforeach; ?>
+
+                    <?php else: ?>
+
+                        <p>
+                            Actualmente no hay teléfonos de emergencia disponibles.
+                        </p>
+
+                    <?php endif; ?>
 
                 </div>
 
@@ -399,4 +374,5 @@ function obtener_color_brigada($color): string
     <?php include_once __DIR__ . '/includes/public/pie_pagina.php'; ?>
 
 </body>
+
 </html>
