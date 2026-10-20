@@ -1,6 +1,6 @@
 -- 1.Crear la base de datos
-CREATE DATABASE redvital_colvatenza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE redvital_colvatenza;
+CREATE DATABASE redvital CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE redvital;
 
 -- 2. Tabla de usuarios
 CREATE TABLE usuarios (

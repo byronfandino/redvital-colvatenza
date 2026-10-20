@@ -744,3 +744,187 @@
         width: 100%;
     }
 }
+
+/* Incidentes escolares frecuentes */
+.tarjeta-incidente {
+    background-color: #f5f8f7;
+}
+
+.tarjeta-incidente .flecha-emergencia {
+    background-color: #075447;
+}
+
+.seccion-incidentes {
+    padding: 70px 0;
+    background-color: #f5f8f7;
+}
+
+.introduccion-incidentes {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.etiqueta-seccion-incidentes {
+    color: #078b4f;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.introduccion-incidentes h2 {
+    margin: 10px 0 12px;
+    color: #17202a;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.introduccion-incidentes p {
+    color: #667085;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.lista-incidentes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.tarjeta-incidente-detalle {
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(16, 24, 40, 0.04);
+    scroll-margin-top: 25px;
+}
+
+.cabecera-incidente {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 23px 25px;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.numero-incidente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    color: #ffffff;
+    background-color: #075447;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.cabecera-incidente h3 {
+    margin-bottom: 5px;
+    color: #17202a;
+    font-size: 19px;
+}
+
+.cabecera-incidente p {
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.cuerpo-incidente {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 25px 27px;
+}
+
+.cuerpo-incidente h4 {
+    margin-bottom: 8px;
+    color: #075447;
+    font-size: 15px;
+}
+
+.cuerpo-incidente p,
+.cuerpo-incidente li {
+    color: #475467;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.cuerpo-incidente ul {
+    padding-left: 19px;
+}
+
+.cuerpo-incidente li + li {
+    margin-top: 7px;
+}
+
+.color-incidente-rojo .numero-incidente {
+    background-color: #e63946;
+}
+
+.color-incidente-azul .numero-incidente {
+    background-color: #1976ed;
+}
+
+.color-incidente-naranja .numero-incidente {
+    background-color: #c56a12;
+}
+
+.color-incidente-verde .numero-incidente {
+    background-color: #078b4f;
+}
+
+.aviso-incidentes {
+    margin-top: 25px;
+    padding: 20px 24px;
+    color: #344054;
+    background-color: #e2f7ef;
+    border-left: 4px solid #078b4f;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 900px) {
+    .lista-incidentes {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-incidentes {
+        padding: 55px 0;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 700px) {
+    .seccion-incidentes {
+        padding: 40px 0;
+    }
+
+    .introduccion-incidentes {
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    .cabecera-incidente {
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .cabecera-incidente h3 {
+        font-size: 17px;
+    }
+
+    .cuerpo-incidente {
+        padding: 20px;
+    }
+
+    .aviso-incidentes {
+        padding: 17px;
+    }
+}
+

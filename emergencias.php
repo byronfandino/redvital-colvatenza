@@ -32,6 +32,55 @@
 
                 <div class="tarjetas-emergencia">
 
+                    <!-- Caídas y resbalones -->
+                    <a href="#caidas-resbalones" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/caida.png" alt="Caídas y resbalones"></div>
+                        <div class="contenido-tarjeta"><h2>Caídas y resbalones</h2><p>Golpes, esguinces y posibles fracturas</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Cortes y heridas -->
+                    <a href="#cortes-heridas" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/cortes.png" alt="Cortes y heridas"></div>
+                        <div class="contenido-tarjeta"><h2>Cortes y heridas</h2><p>Cómo controlar el sangrado y proteger la lesión</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Golpes en la cabeza -->
+                    <a href="#golpes-cabeza" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/golpe-cabeza.png" alt="Golpes en la cabeza"></div>
+                        <div class="contenido-tarjeta"><h2>Golpes en la cabeza</h2><p>Cuidados iniciales y señales de alarma</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Atragantamiento -->
+                    <a href="#atragantamiento" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/atragantamiento.png" alt="Atragantamiento"></div>
+                        <div class="contenido-tarjeta"><h2>Atragantamiento</h2><p>Actuación ante una obstrucción respiratoria</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Quemaduras -->
+                    <a href="#quemaduras" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/quemadura.png" alt="Quemaduras"></div>
+                        <div class="contenido-tarjeta"><h2>Quemaduras</h2><p>Qué hacer ante calor o sustancias químicas</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Desmayos -->
+                    <a href="#desmayos" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/desmayo.png" alt="Desmayos"></div>
+                        <div class="contenido-tarjeta"><h2>Desmayos</h2><p>Atención inicial y cuándo pedir ayuda</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
+                    <!-- Lesiones oculares -->
+                    <a href="#lesiones-oculares" class="tarjeta-emergencia tarjeta-incidente">
+                        <div class="icono-emergencia"><img src="assets/images/golpe-ojo.png" alt="Lesiones oculares"></div>
+                        <div class="contenido-tarjeta"><h2>Lesiones oculares</h2><p>Polvo, partículas, salpicaduras y golpes</p></div>
+                        <span class="flecha-emergencia">+</span>
+                    </a>
+
                     <!-- Incendio -->
                     <a href="#incendio" class="tarjeta-emergencia tarjeta-incendio">
                         <div class="icono-emergencia">
@@ -61,9 +110,8 @@
                         <span class="flecha-emergencia">+</span>
                     </a>
 
-
                     <!-- Accidente -->
-                    <a href="#primeros-auxilios" class="tarjeta-emergencia tarjeta-accidente">
+                    <!-- <a href="#primeros-auxilios" class="tarjeta-emergencia tarjeta-accidente">
                         <div class="icono-emergencia">
                             <img src="assets/images/primeros-auxilios.png" alt="Primeros auxilios">
                         </div>
@@ -74,8 +122,7 @@
                         </div>
 
                         <span class="flecha-emergencia">+</span>
-                    </a>
-
+                    </a> -->
 
                     <!-- Evacuación -->
                     <a href="#evacuacion" class="tarjeta-emergencia tarjeta-evacuacion">
@@ -90,7 +137,59 @@
 
                         <span class="flecha-emergencia">+</span>
                     </a>
+
+
                 </div>
+            </div>
+        </section>
+
+        <!-- Incidentes escolares frecuentes -->
+        <section class="seccion-incidentes" id="incidentes-escolares">
+            <div class="contenedor">
+                <div class="introduccion-incidentes">
+                    <span class="etiqueta-seccion-incidentes">ATENCIÓN INICIAL</span>
+                    <h2>Incidentes frecuentes en el colegio</h2>
+                    <p>Conoce cómo actuar ante situaciones que pueden presentarse en salones, pasillos, escaleras, patio, comedor o laboratorios. Avisa siempre al personal responsable de la institución.</p>
+                </div>
+
+                <div class="lista-incidentes">
+                    <article id="caidas-resbalones" class="tarjeta-incidente-detalle color-incidente-verde">
+                        <div class="cabecera-incidente"><span class="numero-incidente">01</span><div><h3>Caídas y resbalones</h3><p>Pasillos, escaleras o patio</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Golpes, raspones, contusiones, esguinces o posibles fracturas en muñecas, brazos o piernas.</p></div><div><h4>¿Qué hacer?</h4><ul><li>Comprueba que el lugar sea seguro y avisa a un adulto responsable.</li><li>No muevas bruscamente al estudiante si sospechas una fractura grave o lesión en cuello o columna; solicita ayuda médica.</li><li>En un golpe leve, aplica frío envuelto en una tela. Si hay un raspón superficial, lávalo con agua limpia y jabón.</li><li>Informa al servicio médico escolar y a los padres o acudientes. Solicita valoración médica si hay dolor intenso, deformidad o dificultad para apoyar una extremidad.</li></ul></div></div>
+                    </article>
+
+                    <article id="cortes-heridas" class="tarjeta-incidente-detalle color-incidente-rojo">
+                        <div class="cabecera-incidente"><span class="numero-incidente">02</span><div><h3>Cortes y heridas</h3><p>Tijeras, laboratorio o cristales</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Heridas superficiales o profundas y sangrado.</p></div><div><h4>¿Qué hacer?</h4><ul><li>Lávate las manos y usa guantes si están disponibles.</li><li>Presiona la herida con una gasa o paño limpio para controlar el sangrado. Si el sangrado es abundante, pide ayuda urgente y mantén la presión.</li><li>Cuando el sangrado esté controlado y la herida sea superficial, enjuaga con agua limpia y cúbrela con un apósito estéril.</li><li>No retires objetos incrustados ni explores heridas profundas. Busca atención urgente si el sangrado no cede, la herida es profunda o fue causada por un objeto contaminado.</li></ul></div></div>
+                    </article>
+
+                    <article id="golpes-cabeza" class="tarjeta-incidente-detalle color-incidente-azul">
+                        <div class="cabecera-incidente"><span class="numero-incidente">03</span><div><h3>Golpes en la cabeza</h3><p>Caídas o impactos fuertes con balones</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Dolor, chichón, mareo o náuseas. Algunos síntomas pueden aparecer más tarde.</p></div><div><h4>¿Qué hacer?</h4><ul><li>Suspende la actividad, mantén al estudiante acompañado y avisa al personal responsable y a su acudiente.</li><li>Aplica frío envuelto en una tela, sin presionar. No lo dejes solo ni permitas que vuelva a jugar.</li><li>No muevas el cuello si sospechas una lesión cervical.</li><li><strong>Busca atención médica urgente</strong> ante pérdida de conciencia, vómitos repetidos, confusión, convulsiones, somnolencia inusual, dolor que empeora, visión alterada o sangre/líquido por nariz u oídos.</li></ul></div></div>
+                    </article>
+
+                    <article id="atragantamiento" class="tarjeta-incidente-detalle color-incidente-naranja">
+                        <div class="cabecera-incidente"><span class="numero-incidente">04</span><div><h3>Atragantamiento</h3><p>Comedor o recreo</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Un alimento u objeto puede obstruir parcial o totalmente las vías respiratorias.</p></div><div><h4>¿Qué hacer?</h4><ul><li>Si puede hablar, respirar y toser con fuerza, anímalo a seguir tosiendo y vigílalo.</li><li>Si no puede respirar, hablar ni toser eficazmente, pide a alguien que active emergencias de inmediato y aplica primeros auxilios para atragantamiento adecuados a su edad, únicamente si sabes realizarlos.</li><li>Las maniobras cambian según la edad; no se realizan compresiones abdominales en bebés menores de un año.</li><li>Si pierde el conocimiento, colócalo con cuidado en el suelo, activa emergencias e inicia RCP siguiendo las instrucciones del operador y tu nivel de formación.</li></ul></div></div>
+                    </article>
+
+                    <article id="quemaduras" class="tarjeta-incidente-detalle color-incidente-naranja">
+                        <div class="cabecera-incidente"><span class="numero-incidente">05</span><div><h3>Quemaduras</h3><p>Laboratorio de química o comedor</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Lesiones por superficies calientes, líquidos hirviendo o sustancias químicas.</p></div><div><h4>¿Qué hacer?</h4><ul><li>En quemaduras térmicas, enfría la zona con agua corriente fresca durante 20 minutos si es posible. No uses hielo, pasta dental, pomadas ni remedios caseros.</li><li>No retires ropa pegada a la piel. Quita con cuidado anillos u objetos cercanos si no están adheridos ni causan más lesión.</li><li>En quemaduras químicas, evita el contacto con la sustancia, avisa al responsable del laboratorio y sigue la ficha de seguridad. Retira ropa contaminada si puede hacerse sin exponerte y enjuaga con abundante agua, salvo indicación específica del producto.</li><li>Solicita atención médica urgente en quemaduras extensas, profundas, químicas o que afecten cara, manos, genitales o vías respiratorias.</li></ul></div></div>
+                    </article>
+
+                    <article id="desmayos" class="tarjeta-incidente-detalle color-incidente-verde">
+                        <div class="cabecera-incidente"><span class="numero-incidente">06</span><div><h3>Desmayos o lipotimias</h3><p>Calor, ayuno o esfuerzo físico</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Mareo, debilidad o pérdida breve de la conciencia.</p></div><div><h4>¿Qué hacer?</h4><ul><li>Acuesta a la persona boca arriba en un lugar seguro y ventilado. Si no hay lesión y respira con normalidad, puedes elevarle ligeramente las piernas.</li><li>Afloja prendas ajustadas y vigila su respiración. No la dejes sola.</li><li>No le des agua, alimentos ni medicamentos hasta que esté completamente despierta y pueda tragar con normalidad.</li><li>Si no recupera pronto la conciencia, tiene dificultad para respirar, dolor en el pecho, convulsiones o se lesionó al caer, activa emergencias. Si no respira normalmente, inicia RCP si sabes hacerlo.</li></ul></div></div>
+                    </article>
+
+                    <article id="lesiones-oculares" class="tarjeta-incidente-detalle color-incidente-azul">
+                        <div class="cabecera-incidente"><span class="numero-incidente">07</span><div><h3>Lesiones oculares</h3><p>Balones, polvo, partículas o salpicaduras</p></div></div>
+                        <div class="cuerpo-incidente"><div><h4>¿Qué puede pasar?</h4><p>Irritación, cuerpo extraño, salpicadura química o golpe directo en el ojo.</p></div><div><h4>¿Qué hacer?</h4><ul><li>No permitas que la persona se frote el ojo.</li><li>Si hay polvo suelto, enjuaga suavemente con agua limpia o suero fisiológico. Ante una salpicadura química, inicia inmediatamente un lavado abundante y continuo y solicita asistencia urgente.</li><li>No intentes retirar objetos incrustados ni presiones el ojo lesionado.</li><li>Si hubo un golpe fuerte, dolor intenso, cambios en la visión o un objeto incrustado, protege el ojo sin presión y acude de inmediato a urgencias.</li></ul></div></div>
+                    </article>
+                </div>
+
+                <div class="aviso-incidentes"><strong>Importante:</strong> esta información es orientativa y no sustituye la capacitación en primeros auxilios ni la valoración de profesionales de salud. Ante una situación grave, activa el servicio de emergencias y sigue sus instrucciones.</div>
             </div>
         </section>
 
@@ -325,11 +424,10 @@
 
             <!-- Primeros auxilios -->
 
-            <section id="primeros-auxilios" class="emergencia emergencia-primeros-auxilios">
+            <!-- <section id="primeros-auxilios" class="emergencia emergencia-primeros-auxilios">
 
                 <div class="contenedor">
 
-                    <!-- Encabezado -->
                     <div class="encabezado-emergencia">
 
                         <div class="icono-emergencia-grande">
@@ -344,8 +442,6 @@
 
                     </div>
 
-
-                    <!-- Qué hacer -->
                     <div class="bloque-emergencia">
 
                         <div class="titulo-bloque">
@@ -403,8 +499,6 @@
 
                     </div>
 
-
-                    <!-- Recomendaciones -->
                     <div class="alerta-emergencia alerta-primeros-auxilios">
 
                         <div class="icono-alerta">
@@ -423,7 +517,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!-- Evacuación -->
 
@@ -488,7 +582,7 @@
                         </div>
 
                         <div class="imagen-rutas">
-                            <img src="assets/images/ruta-evacuacion.jpeg" alt="Ruta de evacuación">
+                            <img src="assets/images/ruta-evacuacion.png" alt="Ruta de evacuación">
                         </div>
                     </div>
                     

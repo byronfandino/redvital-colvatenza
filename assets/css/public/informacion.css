@@ -54,7 +54,7 @@
             rgba(0, 65, 55, 0.48) 70%,
             rgba(0, 65, 55, 0.16) 100%
         ),
-        url("../../images/colegio-valle-tenza.jpeg") center 45% / cover no-repeat;
+        url("../../images/colegio.jpeg") center 45% / cover no-repeat;
 }
 
 .hero-institucional .contenedor {

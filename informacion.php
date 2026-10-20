@@ -144,7 +144,7 @@
                         </div>
 
                         <img
-                            src="assets/images/colegio-valle-tenza.jpeg"
+                            src="assets/images/colegio.jpeg"
                             alt="Instalaciones de la institución educativa"
                             class="imagen-institucion"
                             loading="lazy"
